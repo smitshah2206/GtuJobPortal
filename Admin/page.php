@@ -28,7 +28,7 @@
           </div>
           <div class="col-md-2 heading-section ftco-animate fadeInUp ftco-animated pl-3">
               <div class="ml-auto d-flex" style="width: 100%;height: 100%;justify-content: center;align-items: center;">
-                <a href="" class="btn btn-success py-2 mr-1">Edit Page</a>
+                <a href="" class="btn btn-success py-2 mr-1">Edit About</a>
               </div>
           </div>
         </div>
@@ -46,8 +46,13 @@
     <section class="ftco-section bg-light" style="padding: 1rem 0;">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 heading-section text-left ftco-animate fadeInUp ftco-animated pl-3">
+          <div class="col-md-10 heading-section text-left ftco-animate fadeInUp ftco-animated pl-3">
             <h2 class="mb-4"><span>Contact</span> Page</h2>
+          </div>
+          <div class="col-md-2 heading-section ftco-animate fadeInUp ftco-animated pl-3">
+              <div class="ml-auto d-flex" style="width: 100%;height: 100%;justify-content: center;align-items: center;">
+                <a href="" class="btn btn-success py-2 mr-1">Edit Contact</a>
+              </div>
           </div>
         </div>
         <div class="row">
@@ -70,8 +75,13 @@
     <section class="ftco-section bg-light" style="padding: 1rem 0;">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 heading-section text-left ftco-animate fadeInUp ftco-animated pl-3">
+          <div class="col-md-10 heading-section text-left ftco-animate fadeInUp ftco-animated pl-3">
             <h2 class="mb-4"><span>Testimonial</span></h2>
+          </div>
+          <div class="col-md-2 heading-section ftco-animate fadeInUp ftco-animated pl-3">
+              <div class="ml-auto d-flex" style="width: 100%;height: 100%;justify-content: center;align-items: center;">
+                <a href="" class="btn btn-success py-2 mr-1">Add Testimonial</a>
+              </div>
           </div>
         </div>
         <div class="row">
@@ -87,6 +97,9 @@
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                     <p class="name">Roger Scott</p>
                     <span class="position">Marketing Manager</span>
+                  </div>
+                  <div class="text">
+                    <a href="" class="btn btn-warning btn-sm">Edit Details</a>
                   </div>
                 </div>
               </div>

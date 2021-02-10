@@ -133,7 +133,7 @@
                     <?php
                   } else {
                     ?>
-                      <a href="contact_change_status.php?contact_id=<?php echo $contact_id;?>&status=0" class="btn btn-warning py-2 mr-1" style="color: #212529;background-color: #ffc107;">Mark as Un-read</a>
+                      <a href="contact_change_status.php?contact_id=<?php echo $contact_id;?>&status=1" class="btn btn-warning py-2 mr-1" style="color: #212529;background-color: #ffc107;">Mark as Un-read</a>
                     <?php
                   }
                 ?>

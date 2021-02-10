@@ -235,7 +235,7 @@
 	}
 	function contact_list($conn)
 	{
-		$sql = "SELECT * FROM `contact` ORDER BY `read_unread_status` DESC";
+		$sql = "SELECT * FROM `contact` ORDER BY `read_unread_status`,`created_time` DESC";
 		$result = mysqli_query($conn,$sql);
 		if($result)
 		{

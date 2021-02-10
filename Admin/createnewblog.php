@@ -18,6 +18,9 @@
         $blogTitle = $row['heading'];
         $blogDescription = $row['description'];
       }
+      if(isset($_POST['id']) && !empty(trim($_POST['id']))) {
+        $id = $_POST['id'];
+      }
 
       if(isset($_POST['submit']))
       {
@@ -92,7 +95,7 @@
         } 
 
         if($blogTitle_validation == 0 && $blogImage_validation == 0 && $blogDescription_validation == 0){
-          if (isset($_POST['id'])) {
+          if (isset($_POST['id']) && !empty(trim($_POST['id']))) {
             if(blog_update($conn,$_POST,$_FILES,$_POST['id']))
             {
               $msg = 'Blog Updated .!';
