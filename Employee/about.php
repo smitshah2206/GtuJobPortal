@@ -1,4 +1,5 @@
     <?php
+      $titlename = "About Us";
       include 'header.php';
       $total_post_job_counter = total_post_job_counter($conn,'');
       $total_candidate_counter = total_candidate_counter($conn,'');

@@ -1,4 +1,5 @@
     <?php
+      $titlename = "Candidate Profile";
       include 'header.php';
     ?>
     <style type="text/css">

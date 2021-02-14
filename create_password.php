@@ -1,4 +1,5 @@
     <?php
+      $titlename = 'Forgot Password';
       include 'header.php';
 
       $enno_msg = '';
@@ -12,7 +13,7 @@
       $confirmpassword = '';
 
       if (isset($_GET['eno'])) {
-        $enno = $_GET['eno'] / 192837465;
+        $enno = $_GET['eno'];
       } else if (isset($_GET['email'])) {
         $email = $_GET['email'];
       } 

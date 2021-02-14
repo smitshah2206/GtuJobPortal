@@ -1,4 +1,5 @@
     <?php
+      $titlename = "Job Details";
       include 'header.php';
       if(isset($_GET['post_id'])){
         $id = $_GET['post_id'];
@@ -159,6 +160,14 @@
                   <li>Job nature : <span><?php echo $current_job_details['job_type']; ?></span></li>
                   <li>Salary : <span><?php echo $current_job_details['job_ctc']; ?> INR</span></li>
                   <li>Last Application date : <span><?php echo $current_job_details['job_deadlinedate']; ?></span></li>
+                  <?php
+
+                    if (isset($round_message['message']) && $round_message['message'] != 'Applied') {
+                      ?>
+                        <li>Exam Url : <span><a href="<?php echo $current_job_details['exam_url']; ?>" target="_blank">Click Here</a></span></li>
+                      <?php
+                    }
+                  ?>
                 </ul>
                 <div class="apply-btn2">
                   <?php
@@ -167,9 +176,16 @@
                         <span class="btn" style="opacity: 0.5"><?php echo $round_message['message']; ?></span>
                       <?php
                     }else{
-                      ?>
-                        <a href="job_applied.php?post_id=<?php echo $current_job_details['id']; ?>" class="btn" >Apply Now</a>
-                      <?php
+                      $currentDate = date('Y-m-d');
+                      if ($current_job_details['job_deadlinedate'] >= $currentDate){
+                        ?>
+                          <a href="job_applied.php?post_id=<?php echo $current_job_details['id']; ?>" class="btn" >Apply Now</a>
+                        <?php
+                      } else {
+                        ?>
+                          <a href="javascript:void(0)" class="btn disabled" >Apply Now</a>
+                        <?php
+                      }
                     }
                   ?>
                 </div>
@@ -228,9 +244,9 @@
                         <div><span class="icon-my_location"></span> <span><?php echo $row['job_location'];?></span></div>
                       </div>
                     </div>
-
-                    <div class="ml-auto d-flex">
+                    <div class="ml-auto d-flex justify-content-center align-items-center flex-column">
                       <a href="job_details.php?post_id=<?php echo $row['id']; ?>" class="btn btn-primary py-2 mr-1">More Details</a>
+                      <span><?php echo date("F d, Y",strtotime($row['job_deadlinedate']));?></span>
                     </div>
                   </div>
                 </div>

@@ -1,4 +1,5 @@
 <?php
+      $titlename = "Post Job";
       include 'header.php';
       $job_category = '';
       $job_type = '';
@@ -171,9 +172,12 @@
                       </div>
                     </div>
 
-                    <div class="ml-auto d-flex">
-                      <a href="createnewpost.php?post_id=<?php echo $row['id']; ?>" class="btn btn-warning py-2 mr-1">Edit Details</a>
-                      <a href="job_details.php?post_id=<?php echo $row['id']; ?>" class="btn btn-primary py-2 mr-1">More Details</a>
+                    <div class="ml-auto d-flex justify-content-center align-items-center flex-column">
+                      <div class="ml-auto d-flex">
+                        <a href="createnewpost.php?post_id=<?php echo $row['id']; ?>" class="btn btn-warning py-2 mr-1">Edit Details</a>
+                        <a href="job_details.php?post_id=<?php echo $row['id']; ?>" class="btn btn-primary py-2 mr-1">More Details</a>
+                      </div>
+                      <span><?php echo date("F d, Y",strtotime($row['job_deadlinedate']));?></span>
                     </div>
                   </div>
                 </div>

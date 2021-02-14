@@ -1,4 +1,5 @@
 <?php
+      $titlename = "Pending Request";
       include 'header.php';
       $company_name = '';
       $company_location = '';

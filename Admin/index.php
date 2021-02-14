@@ -1,4 +1,5 @@
     <?php
+      $titlename = "Home Page";
       include 'header.php';
       $total_candidate = total_candidate($conn,4,2);
       $allpost_job = total_company($conn,4,2);

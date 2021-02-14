@@ -1,16 +1,16 @@
     <?php
+      $titlename = 'About Us';
       include 'header.php';
       $total_post_job_counter = total_post_job_counter($conn,'');
       $total_candidate_counter = total_candidate_counter($conn,'');
       $total_company_counter = total_company_counter($conn,'');
     ?>
     <style type="text/css">
-      .ftco-navbar-light .navbar-nav > .nav-item:nth-child(2) > .nav-link
+      .ftco-navbar-light .navbar-nav > .nav-item:nth-child(4) > .nav-link
       {
-        //color: #95a5a6;
-        //opacity: 0.4 !important;
+        color: #95a5a6;
       }
-      .ftco-navbar-light.scrolled .nav-item:nth-child(2) > a
+      .ftco-navbar-light.scrolled .nav-item:nth-child(4) > a
       {
         color: #157efb !important;
       }

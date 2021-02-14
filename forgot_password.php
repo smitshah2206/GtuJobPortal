@@ -1,4 +1,5 @@
     <?php
+      $titlename = 'Forgot Password';
       include 'header.php';
 
       $enno_msg = '';
@@ -46,9 +47,8 @@
               
               if (!employee_eno_exist($conn,$enno))
                 {
-                  $encrypt_eno = $enno * 192837465;
                   $msg = '';
-                  $link = 'create_password.php?eno='.$encrypt_eno;
+                  $link = 'create_password.php?eno='.$enno;
                   redirect_link($msg,$link);
                 }
                 else

@@ -1,10 +1,12 @@
 <?php
+	$titlename = "Fetch Candidate Details";
 	include '../common_function.php';
     include '../company_function.php';
     include '../connection.php';
 	if(isset($_POST['round_number'])){
 		$round_number = $_POST['round_number'];
-		$candidate_list = company_candidate_list($conn,$_SESSION['id'],$round_number);
+		$id = $_POST['id'];
+		$candidate_list = company_candidate_list($conn,$id,$round_number);
 		$a = 1;
 		$result = '';
 		if($round_number == ""){

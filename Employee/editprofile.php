@@ -1,4 +1,5 @@
     <?php
+      $titlename = "Edit Profile";
       include 'header.php';
       $id = $_SESSION['id'];
       $value = employee_get_details($conn,$id);
@@ -345,13 +346,13 @@
 
         if($sgpa)
         {
-          if (ctype_digit($sgpa))
+          if (ctype_digit(str_replace('.', '', $sgpa)))
           {
             $sgpa_validation = 0;
           }
           else
           {
-            $sgpa_msg = 'Only Character is required';
+            $sgpa_msg = 'Only Number is required';
             $sgpa_validation = 1;
           }
         }
@@ -596,10 +597,6 @@
 
         }
 
-
-
-
-
       }
     ?>
     <style type="text/css">
@@ -801,12 +798,17 @@
                                         <?php
                                       }
                                     ?>
-                                    <option value="2026">2026</option>
-                                    <option value="2025">2025</option>
-                                    <option value="2024">2024</option>
-                                    <option value="2023">2023</option>
-                                    <option value="2022">2022</option>
-                                    <option value="2021">2021</option>
+                                    <?php
+                                      $year = date('Y');
+                                      $end = $year + 4;
+                                      $start = $year - 10;
+                                      while ($end >= $start) {
+                                        ?>
+                                          <option value="<?php echo $end;?>"><?php echo $end;?></option>
+                                        <?php
+                                        $end--;
+                                      }
+                                    ?>
                             </select>
                             <div class="invalid-feedback">
                               <?php echo $graduationyear_msg; ?>
@@ -870,12 +872,17 @@
                                         <?php
                                       }
                                     ?>
-                                    <option value="2026">2026</option>
-                                    <option value="2025">2025</option>
-                                    <option value="2024">2024</option>
-                                    <option value="2023">2023</option>
-                                    <option value="2022">2022</option>
-                                    <option value="2021">2021</option>
+                                    <?php
+                                      $year = date('Y');
+                                      $end = $year + 4;
+                                      $start = $year - 12;
+                                      while ($end >= $start) {
+                                        ?>
+                                          <option value="<?php echo $end;?>"><?php echo $end;?></option>
+                                        <?php
+                                        $end--;
+                                      }
+                                    ?>
                             </select>
                             <div class="invalid-feedback">
                               <?php echo $hscpassout_msg; ?>
@@ -940,12 +947,17 @@
                                         <?php
                                       }
                                     ?>
-                                    <option value="2026">2026</option>
-                                    <option value="2025">2025</option>
-                                    <option value="2024">2024</option>
-                                    <option value="2023">2023</option>
-                                    <option value="2022">2022</option>
-                                    <option value="2021">2021</option>
+                                    <?php
+                                      $year = date('Y');
+                                      $end = $year + 4;
+                                      $start = $year - 14;
+                                      while ($end >= $start) {
+                                        ?>
+                                          <option value="<?php echo $end;?>"><?php echo $end;?></option>
+                                        <?php
+                                        $end--;
+                                      }
+                                    ?>
                             </select>
                             <div class="invalid-feedback">
                               <?php echo $sscpassout_msg; ?>

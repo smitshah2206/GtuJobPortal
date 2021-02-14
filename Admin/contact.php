@@ -1,13 +1,14 @@
     <?php
+      $titlename = "Contact Us";
       include 'header.php';
       $contact_list = contact_list($conn);
     ?>
     <style type="text/css">
-      .ftco-navbar-light .navbar-nav > .nav-item:nth-child(7) > .nav-link
+      .ftco-navbar-light .navbar-nav > .nav-item:nth-child(8) > .nav-link
       {
         color: #95a5a6;
       }
-      .ftco-navbar-light.scrolled .nav-item:nth-child(7) > a
+      .ftco-navbar-light.scrolled .nav-item:nth-child(8) > a
       {
         color: #157efb !important;
       }

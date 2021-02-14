@@ -1,4 +1,5 @@
 <?php
+      $titlename = "Apply Job";
       include 'header.php';
       if(employee_get_status($conn,$_SESSION['id']) == 1)
       {

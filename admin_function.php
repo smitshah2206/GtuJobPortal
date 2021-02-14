@@ -113,6 +113,34 @@
 		}
 	}
 
+	function blog_update($conn,$value,$filevalue,$id)
+	{	
+		$blogTitle = $value['blogTitle'];
+		$blogImage_temp_name = $filevalue['blogImage']['tmp_name'];
+	    $blogImage_extension = pathinfo($filevalue['blogImage']['name'],PATHINFO_EXTENSION);
+	    $blogImage_name = time().'.'.$blogImage_extension;
+	    $url = Blog_Image_Upload_Url.$blogImage_name;
+	    move_uploaded_file($blogImage_temp_name, $url);
+		$blogDescription = $value['blogDescription'];
+		$sql= "UPDATE `blog` SET `image` = '".$blogImage_name."', `heading` = '".$blogTitle."', `description` = '".$blogDescription."' WHERE `id` = '".$id."'";
+		$result = mysqli_query($conn,$sql);
+		if($result)
+		{
+			if(mysqli_affected_rows($conn))
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+		else
+		{
+			return 0;
+		}
+	}
+
 	function admin_total_candidate($conn,$limit='',$status='',$desc='',$employee_name='',$employee_location='')
 	{
 		if (!empty(trim($employee_name)) OR !empty(trim($employee_location))) {

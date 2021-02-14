@@ -361,7 +361,7 @@
 
 	function total_apply_job($conn,$id,$limit='',$desc='')
 	{
-		$sql = "SELECT `job_post`.`id`,`job_title`,`job_type`,`job_location`,`company_name`,`company_website`,`company_logo`,`job_apply`.`round_status`,`round_status`.`message` FROM `job_post`, `company` , `job_apply` , `round_status` WHERE `company`.`id` = `job_post`.`created_by` AND `job_apply`.`job_post_id` = `job_post`.`id` AND `job_apply`.`employee_id` = '".$id."' AND `job_apply`.`round_status` = `round_status`.`id`	";
+		$sql = "SELECT `job_post`.`id`,`job_title`,`job_type`,`job_location`,`company_name`,`company_website`,`company_logo`,`job_apply`.`round_status`,`job_apply`.`created_time`,`round_status`.`message` FROM `job_post`, `company` , `job_apply` , `round_status` WHERE `company`.`id` = `job_post`.`created_by` AND `job_apply`.`job_post_id` = `job_post`.`id` AND `job_apply`.`employee_id` = '".$id."' AND `job_apply`.`round_status` = `round_status`.`id`";
 		if ($desc) {
 			$sql .= " ORDER BY ".$desc." DESC ";
 		}

@@ -1,4 +1,5 @@
     <?php
+      $titlename = "Admin Signin";
       include 'header.php';
       include 'admin_function.php';
       $email_msg = '';

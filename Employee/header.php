@@ -3,11 +3,17 @@
     include '../employee_function.php';
     include '../connection.php';
     dashboard_session();
+    if ($_SERVER['REQUEST_URI'] != '/GtuJobPortal/Employee/editprofile.php') {
+        if(employee_get_status($conn,$_SESSION['id']) == 1)
+        {
+            redirect_link('','editprofile.php');
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>JobPortal - Free Bootstrap 4 Template by Colorlib</title>
+    <title><?php echo $titlename;?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     

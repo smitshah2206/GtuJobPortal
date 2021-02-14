@@ -1,4 +1,5 @@
     <?php
+      $titlename = "Company Profile";
       include 'header.php';
     ?>
     <style type="text/css">

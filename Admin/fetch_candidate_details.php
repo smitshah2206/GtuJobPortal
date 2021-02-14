@@ -1,4 +1,5 @@
 <?php
+	$titlename = "Fetch Candidate Details";
 	include '../common_function.php';
     include '../company_function.php';
     include '../connection.php';

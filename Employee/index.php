@@ -1,10 +1,6 @@
     <?php
+      $titlename = "Home Page";
       include 'header.php';
-      if(employee_get_status($conn,$_SESSION['id']) == 1)
-      {
-        redirect_link('','editprofile.php');
-      }
-
       $total_apply_counter = total_apply_counter($conn,$_SESSION['id']);
       $total_got_aptitude_counter = total_apply_counter($conn,$_SESSION['id'],2);
       $total_got_interview_counter = total_apply_counter($conn,$_SESSION['id'],3);
@@ -115,6 +111,7 @@
                     <div class="ml-auto d-flex justify-content-center align-items-center flex-column">
                       <a href="job_details.php?post_id=<?php echo $row['id']; ?>" class="btn btn-primary py-2 mr-1">More Details</a>
                       <span class="<?php echo $round_color_value; ?>"><?php echo $row['message'];?></span>
+                      <span class="<?php echo $round_color_value; ?>"><?php echo date("F d, Y",strtotime($row['created_time']));?></span>
                     </div>
 
                   </div>
@@ -177,8 +174,9 @@
                       </div>
                     </div>
 
-                    <div class="ml-auto d-flex">
+                    <div class="ml-auto d-flex justify-content-center align-items-center flex-column">
                       <a href="job_details.php?post_id=<?php echo $row['id']; ?>" class="btn btn-primary py-2 mr-1">More Details</a>
+                      <span><?php echo date("F d, Y",strtotime($row['job_deadlinedate']));?></span>
                     </div>
                   </div>
                 </div>

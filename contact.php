@@ -1,4 +1,5 @@
     <?php
+      $titlename = 'Contact Us';
       include 'header.php';
       $name_msg = '';
       $email_msg = '';
@@ -22,7 +23,7 @@
             if($name)
             {
 
-              if (ctype_alpha($name))
+              if (ctype_alpha(str_replace(' ', '', $name)))
               {
                 $name_validation = 0;
               }
@@ -113,11 +114,11 @@
       }
     ?>
     <style type="text/css">
-      .ftco-navbar-light .navbar-nav > .nav-item:nth-child(4) > .nav-link
+      .ftco-navbar-light .navbar-nav > .nav-item:nth-child(6) > .nav-link
       {
         color: #95a5a6;
       }
-      .ftco-navbar-light.scrolled .nav-item:nth-child(4) > a
+      .ftco-navbar-light.scrolled .nav-item:nth-child(6) > a
       {
         color: #157efb !important;
       }
@@ -133,16 +134,16 @@
           </div>
           <div class="w-100"></div>
           <div class="col-md-3">
-            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+            <p><span><b>Address:</b></span><br>198 West 21th Street, Suite 721 New York NY 10016</p>
           </div>
           <div class="col-md-3">
-            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+            <p><span><b>Phone:</b></span><br><a href="javascript:void(0)">+ 1235 2355 98</a></p>
           </div>
           <div class="col-md-3">
-            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+            <p><span><b>Email:</b></span><br><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
           </div>
           <div class="col-md-3">
-            <p><span>Website</span> <a href="#">yoursite.com</a></p>
+            <p><span><b>Website:</b></span><br><a href="yoursite.com" target="_blank">yoursite.com</a></p>
           </div>
         </div>
         <div class="row block-9">

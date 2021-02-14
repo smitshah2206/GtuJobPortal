@@ -1,5 +1,8 @@
     <?php
+      $titlename = "Create New Blog";
       include 'header.php';
+      $id = '';
+
       $blogTitle_msg = '';
       $blogImage_msg = '';
       $blogDescription_msg = '';
@@ -7,6 +10,14 @@
       $blogTitle = '';
       $blogImage = '';
       $blogDescription = '';
+
+      if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $blog_list = blog_list($conn,'',$id);
+        $row = mysqli_fetch_array($blog_list);
+        $blogTitle = $row['heading'];
+        $blogDescription = $row['description'];
+      }
 
       if(isset($_POST['submit']))
       {
@@ -81,17 +92,32 @@
         } 
 
         if($blogTitle_validation == 0 && $blogImage_validation == 0 && $blogDescription_validation == 0){
-          if(blog_insert($conn,$_POST,$_FILES))
-          {
-            $msg = 'New Blog Added .!';
-            $link = BASE_URL.'Admin/blog.php';
-            redirect_link($msg,$link);
-          }
-          else
-          {
-            $msg = 'Some thing went wrong .!';
-            $link = BASE_URL.'Admin/blog.php';
-            redirect_link($msg,$link);
+          if (isset($_POST['id'])) {
+            if(blog_update($conn,$_POST,$_FILES,$_POST['id']))
+            {
+              $msg = 'Blog Updated .!';
+              $link = BASE_URL.'Admin/blog.php';
+              redirect_link($msg,$link);
+            }
+            else
+            {
+              $msg = 'Some thing went wrong .!';
+              $link = BASE_URL.'Admin/blog.php';
+              redirect_link($msg,$link);
+            }
+          } else {
+            if(blog_insert($conn,$_POST,$_FILES))
+            {
+              $msg = 'New Blog Added .!';
+              $link = BASE_URL.'Admin/blog.php';
+              redirect_link($msg,$link);
+            }
+            else
+            {
+              $msg = 'Some thing went wrong .!';
+              $link = BASE_URL.'Admin/blog.php';
+              redirect_link($msg,$link);
+            }
           }
         }
       }
@@ -120,7 +146,7 @@
         <div class="row">
           <div class="col-md-12 col-lg-12 mb-5">
             <form action="createnewblog.php" method="post" class="p-5 bg-white" enctype="multipart/form-data">
-
+              <input type="hidden" name="id" value="<?php echo $id;?>">
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="blogtitle">Blog Title</label>

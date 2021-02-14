@@ -1,5 +1,6 @@
 
     <?php
+      $titlename = "Candidate Details";
       include 'header.php';
       if(isset($_GET['employee_id'])){
         $employee_id = $_GET['employee_id'];

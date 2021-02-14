@@ -1,11 +1,16 @@
 <?php
+      $titlename = "Candidate List";
       include 'header.php';
       $employee_name = '';
       $employee_location = '';
+      $employee_skill = '';
       $round_status = '';
       if (isset($_GET['employee_name'])){
         $employee_name = trim($_GET['employee_name']);
       } 
+      if (isset($_GET['employee_skill'])) {
+        $employee_skill = trim($_GET['employee_skill']);
+      }
       if (isset($_GET['employee_location'])) {
         $employee_location = trim($_GET['employee_location']);
       }
@@ -13,8 +18,9 @@
         $round_status = trim($_GET['round_status']);
       }
 
-      $total_candidate = total_candidate($conn,'',$round_status,'id',$employee_name,$employee_location);
+      $total_candidate = total_candidate($conn,'',$round_status,'id',$employee_name,$employee_location,$employee_skill);
       $find_candidate_list = find_candidate($conn);
+      $find_skill_list = find_skill($conn);
       $candidate_location_list = find_location($conn);
     ?>
     <style type="text/css">
@@ -63,6 +69,27 @@
                                      } 
                                   ?>
                                 </datalist>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md">
+                    <div class="form-group">
+                      <div class="form-field">
+                        <div class="select-wrap">
+                          <div class="icon">
+                            <span class="icon-briefcase"></span>
+                          </div>
+                          <input type="text" class="form-control" name="employee_skill" placeholder="eg. Web Devloper" value="<?php echo $employee_skill;?>" list="employee_skill" autocomplete="off">
+                        <datalist id="employee_skill">
+                                  <?php
+                                    while ($row = mysqli_fetch_array($find_skill_list)){
+                                      ?>
+                                        <option value="<?php echo $row['intrestarea'];?>">
+                                      <?php
+                                     } 
+                                  ?>
+                                </datalist>
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -1,4 +1,5 @@
     <?php
+      $titlename = "Contact Us";
       include 'header.php';
       $name_msg = '';
       $email_msg = '';
@@ -22,7 +23,7 @@
             if($name)
             {
 
-              if (ctype_alpha($name))
+              if (ctype_alpha(str_replace(' ', '', $name)))
               {
                 $name_validation = 0;
               }

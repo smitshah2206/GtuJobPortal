@@ -1,4 +1,5 @@
 <?php
+	$titlename = "Company Change Status";
 	include 'header.php';
 	if (isset($_GET['company_id']) && !empty(trim($_GET['company_id'])) && isset($_GET['status']) && !empty(trim($_GET['status']))) {
 		$company_id = $_GET['company_id'];

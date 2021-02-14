@@ -282,9 +282,13 @@
 		}
 	}
 
-	function blog_list($conn ,$limit='')
+	function blog_list($conn ,$limit='',$id='')
 	{
-		$sql = "SELECT * FROM `blog` ORDER BY `created_time` DESC";
+		$sql = "SELECT * FROM `blog`";
+		if (isset($id) && !empty(trim($id))) {
+		 	$sql .= "WHERE `id` = '".$id."'";
+		} 
+		$sql .= "ORDER BY `created_time` DESC";
 		if($limit){
 			$sql .= " LIMIT ".$limit." ";
 		}
@@ -308,7 +312,7 @@
 
 
 	function fetch_job_details($conn,$id){
-		$sql = "SELECT `job_post`.`id`,`job_title`,`job_ctc`,`job_deadlinedate`,`job_vacancies`,`job_type`,`job_location`,`job_eligiblity`,`job_description`,`email`,`company_name`,`company_website`,`company_about`,`company_logo` FROM `job_post`, `company` WHERE `job_post`.`id`= '$id' AND `company`.`id` = `job_post`.`created_by`";
+		$sql = "SELECT `job_post`.`id`,`job_title`,`job_ctc`,`job_deadlinedate`,`job_vacancies`,`job_type`,`job_location`,`exam_url`,`job_eligiblity`,`job_description`,`email`,`company_name`,`company_website`,`company_about`,`company_logo` FROM `job_post`, `company` WHERE `job_post`.`id`= '$id' AND `company`.`id` = `job_post`.`created_by`";
 		$result = mysqli_query($conn,$sql);
 		if($result)
 		{
@@ -423,6 +427,20 @@
 	function find_location($conn)
 	{
 		$sql = "SELECT DISTINCT `district` FROM `employee` WHERE `district` != '' OR `state` != '' OR `contry` != ''";
+		$result = mysqli_query($conn,$sql);
+		if($result)
+		{
+			return $result;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	function find_skill($conn)
+	{
+		$sql = "SELECT DISTINCT `intrestarea` FROM `employee` WHERE `intrestarea` != ''";
 		$result = mysqli_query($conn,$sql);
 		if($result)
 		{

@@ -1,4 +1,5 @@
 <?php
+      $titlename = "Company Details";
       include 'header.php';
       $company_name = '';
       $company_location = '';

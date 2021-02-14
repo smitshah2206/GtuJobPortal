@@ -1,5 +1,6 @@
 
     <?php
+      $titlename = 'Blog Post';
       include 'header.php';
       $blog_list = blog_list($conn);
       $email_msg = '';
@@ -46,11 +47,11 @@
       }
     ?>
     <style type="text/css">
-      .ftco-navbar-light .navbar-nav > .nav-item:nth-child(3) > .nav-link
+      .ftco-navbar-light .navbar-nav > .nav-item:nth-child(5) > .nav-link
       {
         color: #95a5a6;
       }
-      .ftco-navbar-light.scrolled .nav-item:nth-child(3) > a
+      .ftco-navbar-light.scrolled .nav-item:nth-child(5) > a
       {
         color: #157efb !important;
       }

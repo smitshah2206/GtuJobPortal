@@ -1,4 +1,5 @@
 <?php
+	$titlename = "Contact Change Status";
 	include 'header.php';
 	if (isset($_GET['contact_id']) && !empty(trim($_GET['contact_id'])) && isset($_GET['status'])) {
 		$contact_id = $_GET['contact_id'];

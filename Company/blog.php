@@ -1,5 +1,6 @@
 
     <?php
+      $titlename = "Blog Post";
       include 'header.php';
       $blog_list = blog_list($conn);
       $email_msg = '';

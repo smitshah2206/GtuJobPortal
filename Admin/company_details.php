@@ -1,5 +1,6 @@
 
     <?php
+      $titlename = "Company Details";
       include 'header.php';
       if(isset($_GET['company_id'])){
         $company_id = $_GET['company_id'];

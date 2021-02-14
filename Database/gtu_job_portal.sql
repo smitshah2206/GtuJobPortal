@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2021 at 06:00 PM
+-- Generation Time: Feb 14, 2021 at 06:31 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -55,18 +55,6 @@ CREATE TABLE `blog` (
   `created_time` timestamp(6) NOT NULL DEFAULT current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `blog`
---
-
-INSERT INTO `blog` (`id`, `image`, `heading`, `description`, `created_time`) VALUES
-(1, '1612029445.jpg', 'Even the all-powerful Pointing has no control about the blind texts', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto enim non iste maxime optio, ut com', '2020-12-31 18:49:52.000000'),
-(2, '1612029445.jpg', 'Even the all-powerful Pointing has no control about the blind texts', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nobis natus incidunt officia assumenda.', '2021-01-16 18:51:22.000000'),
-(3, '1612029445.jpg', 'Even the all-powerful Pointing has no control about the blind texts', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi obcaecati praesentium,', '2021-01-16 18:51:52.000000'),
-(4, '1612029445.jpg', 'Even the all-powerful Pointing has no control about the blind texts', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor minima, dolores quis, dolorum accusamu', '2021-01-16 18:52:24.000000'),
-(7, '1612029346.png', 'Even the all-powerful Pointing has no control about the blind texts', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nobis natus incidunt officia assumenda.', '2021-01-30 17:55:46.982652'),
-(8, '1612029445.jpg', 'Even the all-powerful Pointing has no control about the blind texts', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nobis natus incidunt officia assumenda.', '2021-01-30 17:57:25.658545');
-
 -- --------------------------------------------------------
 
 --
@@ -100,10 +88,7 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`id`, `firstname`, `middlename`, `lastname`, `email`, `password`, `contactnumber`, `company_name`, `company_website`, `company_about`, `company_contry`, `company_state`, `company_district`, `whatsapp`, `facebook`, `linkedin`, `company_logo`, `status`, `created_time`) VALUES
-(1, 'Smit', 'Rupeshkumar', 'shah', 'smitshah22050602@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', '9409324362', 'Yottol', 'https://www.yottol.com/', 'Null', 'India', 'Gujarat', 'Ahmedabad', '', '', 'https://safal.com', '1611857382.png', 2, '2020-12-30 04:16:22.161509'),
-(2, 'ABC', 'GHI', 'DEF', 'smit@gmail.com', '3dbe00a167653a1aaee01d93e77e730e', '8849364239', 'CyberCom', 'https://github.com/smitshah2206/CybercomCreation/', 'Vastrapur', 'India', 'Gujarat', 'Surat', '', '', '', '1611857382.png', 2, '0000-00-00 00:00:00.000000'),
-(3, 'smit', 'Rupeshkumar', 'shah', 'smitshah@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', '1234567890', 'Safal', 'https://safal.com', 'Null', 'India', 'Gujarat', 'Ahmedabad', '', '', 'https://safal.com', '1612069800.jpg', 2, '2021-01-31 05:00:31.182938'),
-(4, 'Saptarshi', 'R', 'Das', 'sdas@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', '0884936423', 'Yottol', 'https://www.yottol.com/', 'dsdsdsds', 'India', 'Gujarat', 'Ahmedabad', '', '', '', '1612801064.png', 2, '2021-02-02 17:34:52.245271');
+(1, 'Smit', 'Rupeshkumar', 'Shah', 'smitshah22050602@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', '8849364239', 'Yottol', 'https://www.yottol.com/', 'Null', 'India', 'Gujarat', 'Ahmedabad', '9409324362', '', '', '1613234170.png', 2, '2021-02-13 16:34:24.641412');
 
 -- --------------------------------------------------------
 
@@ -121,16 +106,6 @@ CREATE TABLE `contact` (
   `read_unread_status` int(1) NOT NULL DEFAULT 1,
   `created_time` timestamp(6) NOT NULL DEFAULT current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `contact`
---
-
-INSERT INTO `contact` (`id`, `name`, `email`, `subject`, `message`, `status`, `read_unread_status`, `created_time`) VALUES
-(1, 'Smit', 'smitshah22050602@gmail.com', 'Hello Testing', 'This is testing', 4, 0, '2021-01-11 18:28:09.824823'),
-(2, 'Smit', 'smitshah22050602@gmail.com', 'Hello Testing', 'This is testing', 4, 0, '2021-01-11 18:29:26.160940'),
-(3, 'Shah', 's@gmail.com', 'Hello Testing2', 'Testing2', 4, 1, '2021-01-11 18:32:15.492030'),
-(4, 'sds', 'smit@gmail.com', 'Hello Testing3', 'Testing3', 4, 0, '2021-01-11 18:35:17.363870');
 
 -- --------------------------------------------------------
 
@@ -179,10 +154,7 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`id`, `firstname`, `middlename`, `lastname`, `enrollmentno`, `email`, `password`, `contactnumber`, `dateofbirth`, `gender`, `contry`, `state`, `district`, `colleagename`, `sgpa`, `graduationyear`, `hscschoolname`, `hscboardname`, `hsccgpa`, `hscyear`, `sscschoolname`, `sscboardname`, `ssccgpa`, `sscyear`, `coverletter`, `intrestarea`, `resume`, `whatsapp`, `github`, `linkedin`, `skype`, `status`, `created_time`) VALUES
-(9, 'Smit', '', 'shah', '22332', 'xxyyzz2206@gmail.com', '3dbe00a167653a1aaee01d93e77e730e', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, '2020-12-29 12:35:36.912056'),
-(11, 'Smit', 'Rupeshkumar', 'Shah', '54', 'smitshah22050602@gmail.com', 'e7e48185d817150e8869be5ad23fc90f', '8849364239', '2000-02-06', 'Male', 'India', 'Gujarat', 'Ahmedabad', 'IndusUniversity', '822', '2026', 'Navchetan', 'Gujarat Board', '70', '2026', 'Navchetan', 'Gujarat Board', '80', '2026', 'Hello I am Smit', 'saadsad', '1612462196.pdf', '9409324362', 'https://www.github.com', 'https://www.github.com', 'https://www.github.com', 2, '2021-01-01 09:45:25.702250'),
-(12, 'Bhavya', '', 'Shah', '05', 'bhavyashah2206@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, '2021-02-02 15:22:17.181915'),
-(13, 'Sumit', '', 'Sapoliya', '44', 'sumit@gmail.com', '070c46ae1c20ded0f348e3e282e9c35a', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, '2021-02-02 23:03:32.615728');
+(1, 'smit', 'Rupeshkumar', 'Shah', '123456789012', 'smitshah22050602@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', '8849364239', '2021-02-13', 'Male', 'India', 'Gujarat', 'Ahmedabad', 'Indus University', '9', '2024', 'Navchetan', 'Gujarat Board', '70', '2026', 'Navchetan', 'Gujarat Board', '80', '2026', '', 'Web Devloper', '1613234636.pdf', '', '', '', '', 2, '2021-02-13 21:58:41.190264');
 
 -- --------------------------------------------------------
 
@@ -203,9 +175,7 @@ CREATE TABLE `job_apply` (
 --
 
 INSERT INTO `job_apply` (`id`, `job_post_id`, `employee_id`, `round_status`, `created_time`) VALUES
-(1, 1, 11, 3, '2021-01-13 17:18:50.896963'),
-(10, 1, 9, 3, '2021-01-25 15:46:46.714336'),
-(11, 2, 11, 1, '2021-02-02 09:53:32.272566');
+(1, 1, 1, 1, '2021-02-13 16:45:59.697099');
 
 -- --------------------------------------------------------
 
@@ -221,6 +191,7 @@ CREATE TABLE `job_post` (
   `job_vacancies` int(255) NOT NULL,
   `job_type` varchar(255) NOT NULL,
   `job_location` varchar(255) NOT NULL,
+  `exam_url` varchar(255) NOT NULL,
   `job_eligiblity` varchar(255) NOT NULL,
   `job_description` varchar(255) NOT NULL,
   `status` int(1) NOT NULL,
@@ -232,11 +203,9 @@ CREATE TABLE `job_post` (
 -- Dumping data for table `job_post`
 --
 
-INSERT INTO `job_post` (`id`, `job_title`, `job_ctc`, `job_deadlinedate`, `job_vacancies`, `job_type`, `job_location`, `job_eligiblity`, `job_description`, `status`, `created_by`, `created_time`) VALUES
-(1, 'Devloper', '2L - 3L', '2021-01-09', 4, 'Full Time', 'Ahmedabad', 'Null', 'Null', 4, '1', '2021-01-09 07:32:48.015899'),
-(2, 'Devloper', '2L - 3L', '2021-01-18', 4, 'Part Time', 'Ahmedabad', 'null', 'null', 4, '2', '2021-01-18 16:52:25.318029'),
-(4, 'Designer', '2L - 3L', '2021-02-03', 4, 'Part Time', 'Ahmedabad', 'Hello \r\nNothing\r\njsjdjdjjsds', 'sdsdsdsds', 4, '1', '2021-02-03 18:29:43.580443'),
-(5, 'Software Engineer', '2L - 3L', '2021-01-01', 2, 'Full Time', 'Vadodra', 'Null', 'Urgent Required', 4, '1', '2021-02-09 06:35:21.035713');
+INSERT INTO `job_post` (`id`, `job_title`, `job_ctc`, `job_deadlinedate`, `job_vacancies`, `job_type`, `job_location`, `exam_url`, `job_eligiblity`, `job_description`, `status`, `created_by`, `created_time`) VALUES
+(1, 'Devloper', '2L - 3L', '2021-02-13', 3, 'Full Time', 'Ahmedabad', 'http://www.gmail.com', 'Null', 'Null', 4, '1', '2021-02-13 16:38:54.998815'),
+(2, 'Devloper', '2L - 3L', '2021-02-13', 3, 'Part Time', 'Ahmedabad', 'http://www.gmail.com', 'Null', 'Null', 4, '1', '2021-02-13 16:49:04.198804');
 
 -- --------------------------------------------------------
 
@@ -250,16 +219,20 @@ CREATE TABLE `news_letter` (
   `created_at` timestamp(6) NOT NULL DEFAULT current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `news_letter`
+-- Table structure for table `page`
 --
 
-INSERT INTO `news_letter` (`id`, `email`, `created_at`) VALUES
-(1, 'smitshah22050602@gmail.com', '2021-02-09 16:46:55.380088'),
-(2, 'admin@gmail.com', '2021-02-09 16:48:41.596453'),
-(3, 'xxyyzz2206@gmail.com', '2021-02-09 16:50:03.349029'),
-(4, 'sdas@gmail.com', '2021-02-09 16:51:04.742597'),
-(5, 'smit@gmail.com', '2021-02-09 16:52:52.430739');
+CREATE TABLE `page` (
+  `id` int(11) NOT NULL,
+  `about_info` varchar(255) NOT NULL,
+  `contact_address` varchar(255) NOT NULL,
+  `contact_number` varchar(255) NOT NULL,
+  `contact_email` varchar(255) NOT NULL,
+  `contact_website` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -358,6 +331,12 @@ ALTER TABLE `news_letter`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `page`
+--
+ALTER TABLE `page`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `round_status`
 --
 ALTER TABLE `round_status`
@@ -383,43 +362,49 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `job_apply`
 --
 ALTER TABLE `job_apply`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `job_post`
 --
 ALTER TABLE `job_post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `news_letter`
 --
 ALTER TABLE `news_letter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `page`
+--
+ALTER TABLE `page`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `round_status`

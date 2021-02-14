@@ -1,4 +1,5 @@
     <?php
+      $titlename = 'Sign Up';
       include 'header.php';
       
       $firstname_msg = '';
@@ -22,7 +23,7 @@
         $category = input_data($_POST['category']);
         $firstname = input_data($_POST['firstname']);
         $lastname = input_data($_POST['lastname']);
-        $enno = input_data($_POST['enno']);
+        $enno = input_data($_POST['enrollement_no']);
         $email = input_data($_POST['email']);
         $password = input_data($_POST['password']);
         $confirm_password = input_data($_POST['confirm_password']);
@@ -92,13 +93,21 @@
 
               if (ctype_digit($enno))
               {
-                if (employee_eno_exist($conn,$enno))
+                if (strlen($enno) == 12)
                 {
-                  $enno_validation = 0;
+                  if (employee_eno_exist($conn,$enno))
+                  {
+                    $enno_validation = 0;
+                  }
+                  else
+                  {
+                    $enno_msg = 'Enrollement number is already used.';
+                    $enno_validation = 1;
+                  }
                 }
                 else
                 {
-                  $enno_msg = 'Enrollement number is already used.';
+                  $enno_msg = 'Enrollement number must be 12 Digit.';
                   $enno_validation = 1;
                 }
               }
@@ -466,15 +475,15 @@
                   <div class="form-group mb-2">
                     <div class="row w-100" style="margin: 0;">
                       <div class="col-md" style="padding-left: 0;">
-                        <label for="email">First Name</label>
-                          <input id="email" type="text" class="form-control" name="firstname" value='<?php echo $firstname; ?>' required>
+                        <label for="firstname">First Name</label>
+                          <input id="firstname" type="text" class="form-control" name="firstname" value='<?php echo $firstname; ?>' required>
                           <div class="invalid-feedback">
                             <?php echo $firstname_msg;?>
                           </div>
                       </div>
                       <div class="col-md" style="padding-right: 0;">
-                        <label for="email">Last Name</label>
-                          <input id="email" type="text" class="form-control" name="lastname" value='<?php echo $lastname; ?>'>
+                        <label for="lastname">Last Name</label>
+                          <input id="lastname" type="text" class="form-control" name="lastname" value='<?php echo $lastname; ?>'>
                           <div class="invalid-feedback">
                             <?php echo $lastname_msg;?>
                           </div>
@@ -485,8 +494,8 @@
                   <div class="form-group mb-2">
                     <div class="row w-100" style="margin: 0;">
                       <div class="col-md" style="padding-left: 0;" id="resultdropdown1">
-                        <label for="enno">Enrollment No</label>
-                        <input id="enno" type="number" class="form-control" name="enno" required value='<?php echo $enno; ?>'>
+                        <label for="enrollement_no">Enrollment No</label>
+                        <input id="enno" type="number" class="form-control" name="enrollement_no" required value='<?php echo $enno; ?>'>
                         <div class="invalid-feedback">
                           <?php echo $enno_msg;?>
                         </div>

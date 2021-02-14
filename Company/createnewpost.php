@@ -1,4 +1,5 @@
     <?php
+      $titlename = "Create New Post";
       include 'header.php';
       $id = $_SESSION['id'];
 
@@ -8,6 +9,7 @@
       $job_vacancies_msg = '';
       $job_type_msg = '';
       $job_location_msg = '';
+      $job_url_msg = '';
       $job_eligiblity_msg = '';
       $job_description_msg = '';
 
@@ -17,6 +19,7 @@
       $job_vacancies = '';
       $job_type = '';
       $job_location = '';
+      $job_url = '';
       $job_eligiblity = '';
       $job_description = '';
 
@@ -29,6 +32,7 @@
         $job_vacancies = $currentpost_job['job_vacancies'];
         $job_type = $currentpost_job['job_type'];
         $job_location = $currentpost_job['job_location'];
+        $job_url = $currentpost_job['exam_url'];
         $job_eligiblity = $currentpost_job['job_eligiblity'];
         $job_description = $currentpost_job['job_description'];
       }
@@ -40,6 +44,7 @@
         $job_vacancies = input_data($_POST['job_vacancies']);
         $job_type = input_data($_POST['job_type']);
         $job_location = input_data($_POST['job_location']);
+        $job_url = input_data($_POST['job_url']);
         $job_eligiblity = input_data($_POST['job_eligiblity']);
         $job_description = input_data($_POST['job_description']);
 
@@ -49,6 +54,7 @@
         $job_vacancies_validation = 0;
         $job_type_validation = 0;
         $job_location_validation = 0;
+        $job_url_validation = 0;
         $job_eligiblity_validation = 0;
         $job_description_validation = 0;
 
@@ -101,6 +107,22 @@
           $job_location_validation = 1;
         }
 
+        if($job_url)
+        {
+          if (filter_var($job_url, FILTER_VALIDATE_URL)) {
+            $job_url_validation = 0;
+          } else {
+            $job_url_msg = "Use valid url format.";
+            $job_url_validation = 1;
+          }
+          
+        }
+        else
+        {
+          $job_url_msg = 'Exam Url is required';
+          $job_url_validation = 1;
+        }
+
         if($job_eligiblity)
         {
           if (strlen($job_eligiblity) < 250) 
@@ -137,7 +159,7 @@
           $job_description_validation = 1;
         }
 
-        if($job_title_validation == 0 && $job_ctc_validation == 0 && $job_deadlinedate_validation == 0 && $job_vacancies_validation == 0 && $job_type_validation == 0 && $job_location_validation == 0 && $job_eligiblity_validation == 0 && $job_description_validation == 0)
+        if($job_title_validation == 0 && $job_ctc_validation == 0 && $job_deadlinedate_validation == 0 && $job_vacancies_validation == 0 && $job_type_validation == 0 && $job_location_validation == 0 && $job_url_validation == 0 && $job_eligiblity_validation == 0 && $job_description_validation == 0)
         {
           if (isset($_POST['post_id'])) {
             if(company_job_update($conn,$_POST))
@@ -378,6 +400,16 @@
                                 </datalist>
                   <div class="invalid-feedback">
                     <?php echo $job_location_msg; ?>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row form-group mb-4">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="url">Apptitude Exam Url</label>
+                  <input type="url" class="form-control" name="job_url" placeholder="https://www.form.link" value="<?php echo $job_url; ?>">
+                  <div class="invalid-feedback">
+                    <?php echo $job_url_msg; ?>
                   </div>
                 </div>
               </div>

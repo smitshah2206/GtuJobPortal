@@ -14,6 +14,7 @@
 	          <li class="nav-item"><a href="candidate.php" class="nav-link">Candidate</a></li>
 	          <li class="nav-item"><a href="company.php" class="nav-link">Company</a></li>
 	          <li class="nav-item"><a href="postjob.php" class="nav-link">Post a Job</a></li>
+	          <li class="nav-item"><a href="page.php" class="nav-link">Page</a></li>
 	          <li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>

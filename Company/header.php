@@ -3,11 +3,25 @@
     include '../company_function.php';
     include '../connection.php';
     dashboard_session();
+    if ($_SERVER['REQUEST_URI'] != '/GtuJobPortal/Company/editprofile.php') {
+        $status = company_get_status($conn,$_SESSION['id']);
+        if($status == 1)
+        {
+            $_SESSION['first_time_login'] = 1;
+            redirect_link('','editprofile.php');
+        } else if ($status == 5) {
+            redirect_link('Your profile is under verification','logout.php');
+        }
+        if(company_get_status($conn,$_SESSION['id']) == 1)
+        {
+            redirect_link('','editprofile.php');
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>JobPortal - Free Bootstrap 4 Template by Colorlib</title>
+    <title><?php echo $titlename;?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     

@@ -1,14 +1,6 @@
     <?php
+      $titlename = "Home Page";
       include 'header.php';
-      $status = company_get_status($conn,$_SESSION['id']);
-      if($status == 1)
-      {
-        $_SESSION['first_time_login'] = 1;
-        redirect_link('','editprofile.php');
-      } else if ($status == 5) {
-        redirect_link('Your profile is under verification','logout.php');
-      }
-
       $total_post_job_counter = total_post_job_counter($conn,$_SESSION['id']);
       $total_candidate_counter = total_candidate_counter($conn,$_SESSION['id']);
       $total_selected_candidate_counter = total_candidate_counter($conn,$_SESSION['id'],4);
@@ -116,9 +108,13 @@
                       </div>
                     </div>
 
-                    <div class="ml-auto d-flex">
-                      <a href="createnewpost.php?post_id=<?php echo $row['id']; ?>" class="btn btn-warning py-2 mr-1">Edit Details</a>
-                      <a href="job_details.php?post_id=<?php echo $row['id']; ?>" class="btn btn-primary py-2 mr-1">More Details</a>
+                    
+                    <div class="ml-auto d-flex justify-content-center align-items-center flex-column">
+                      <div class="ml-auto d-flex">
+                        <a href="createnewpost.php?post_id=<?php echo $row['id']; ?>" class="btn btn-warning py-2 mr-1">Edit Details</a>
+                        <a href="job_details.php?post_id=<?php echo $row['id']; ?>" class="btn btn-primary py-2 mr-1">More Details</a>
+                      </div>
+                      <span><?php echo date("F d, Y",strtotime($row['job_deadlinedate']));?></span>
                     </div>
                   </div>
                 </div>
@@ -175,10 +171,13 @@
                         <div><span class="icon-my_location"></span> <span><?php echo $row['job_location'];?></span></div>
                       </div>
                     </div>
-
-                    <div class="ml-auto d-flex">
-                      <a href="createnewpost.php?post_id=<?php echo $row['id']; ?>" class="btn btn-warning py-2 mr-1">Edit Details</a>
-                      <a href="job_details.php?post_id=<?php echo $row['id']; ?>" class="btn btn-primary py-2 mr-1">More Details</a>
+                    
+                    <div class="ml-auto d-flex justify-content-center align-items-center flex-column">
+                      <div class="ml-auto d-flex">
+                        <a href="createnewpost.php?post_id=<?php echo $row['id']; ?>" class="btn btn-warning py-2 mr-1">Edit Details</a>
+                        <a href="job_details.php?post_id=<?php echo $row['id']; ?>" class="btn btn-primary py-2 mr-1">More Details</a>
+                      </div>
+                      <span><?php echo date("F d, Y",strtotime($row['job_deadlinedate']));?></span>
                     </div>
                   </div>
                 </div>

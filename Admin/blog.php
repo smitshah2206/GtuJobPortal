@@ -1,5 +1,6 @@
 
     <?php
+      $titlename = "Blog Post";
       include 'header.php';
       $blog_list = blog_list($conn);
       $email_msg = '';
@@ -45,11 +46,11 @@
       }
     ?>
     <style type="text/css">
-      .ftco-navbar-light .navbar-nav > .nav-item:nth-child(6) > .nav-link
+      .ftco-navbar-light .navbar-nav > .nav-item:nth-child(7) > .nav-link
       {
         color: #95a5a6;
       }
-      .ftco-navbar-light.scrolled .nav-item:nth-child(6) > a
+      .ftco-navbar-light.scrolled .nav-item:nth-child(7) > a
       {
         color: #157efb !important;
       }
@@ -85,6 +86,9 @@
                     </div>
                     <h3 class="heading"><a href="#"><?php echo $row['heading'];?></a></h3>
                    <p><?php echo $row['description'];?></p>
+                   <div class="ml-auto d-flex">
+                      <a href="createnewblog.php?id=<?php echo $row['id'];?>" class="btn btn-warning py-2 mr-1">Edit Details</a>
+                    </div>
                   </div>
                 </div>
               </div>

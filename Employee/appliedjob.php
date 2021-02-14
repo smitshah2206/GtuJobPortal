@@ -1,4 +1,5 @@
     <?php
+      $titlename = "Applied Job";
       include 'header.php';
       $recent_applied_job = total_apply_job($conn,$_SESSION['id'],10,'`job_apply`.`id`');
     ?>
@@ -61,6 +62,7 @@
                    <div class="ml-auto d-flex justify-content-center align-items-center flex-column">
                       <a href="job_details.php?post_id=<?php echo $row['id']; ?>" class="btn btn-primary py-2 mr-1">More Details</a>
                       <span class="<?php echo $round_color_value; ?>"><?php echo $row['message'];?></span>
+                      <span class="<?php echo $round_color_value; ?>"><?php echo date("F d, Y",strtotime($row['created_time']));?></span>
                     </div>
                   </div>
                 </div>

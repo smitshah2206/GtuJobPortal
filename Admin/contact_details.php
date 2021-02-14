@@ -1,5 +1,6 @@
 
     <?php
+      $titlename = "Contact Details";
       include 'header.php';
       if(isset($_GET['contact_id'])){
         $contact_id = $_GET['contact_id'];

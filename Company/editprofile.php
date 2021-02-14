@@ -1,4 +1,5 @@
      <?php
+      $titlename = "Edit Profile";
       include 'header.php';
       $id = $_SESSION['id'];
       $value = company_get_details($conn,$id);

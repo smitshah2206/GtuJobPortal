@@ -1,4 +1,5 @@
     <?php
+      $titlename = "Job Details";
       include 'header.php';
       if(isset($_GET['post_id'])){
         $id = $_GET['post_id'];
@@ -100,9 +101,6 @@
                     <a href="<?php echo $current_job_details['company_website']; ?>" target = "_blank"><img src="<?php echo Company_Logo_Url.$current_job_details['company_logo']; ?>" alt="<?php echo $current_job_details['company_name']; ?>" style = 'background-size: cover;width:85px;height:85px;'></a>
                   </div>
                   <div class="job-tittle">
-                    <!-- <a href="#">
-                      <h4><?php echo $current_job_details['job_title']; ?></h4>
-                    </a> -->
                     <div class="job-post-item-header d-flex align-items-center mb-3">
                         <h2 class="mr-3 mb-0 text-black h3"><?php echo $current_job_details['job_title'];?></h2>
                         <div class="badge-wrap">
@@ -156,7 +154,8 @@
                   <li>Job nature : <span><?php echo $current_job_details['job_type']; ?></span></li>
                   <li>Salary : <span><?php echo $current_job_details['job_ctc']; ?> INR</span></li>
                   <li>Last Application date : <span><?php echo $current_job_details['job_deadlinedate']; ?></span></li>
-                  <li><a href="createnewpost.php?post_id=<?php echo $row['id']; ?>" class="btn btn-warning py-2 mr-1" style="color: #212529;background-color: #ffc107;">Edit Details</a></li>
+                  <li>Exam Url : <span><a href="<?php echo $current_job_details['exam_url']; ?>" target="_blank">Click Here</a></span></li>
+                  <li><a href="createnewpost.php?post_id=<?php echo $current_job_details['id']; ?>" class="btn btn-warning py-2 mr-1" style="color: #212529;background-color: #ffc107;">Edit Details</a></li>
                 </ul>
               </div>
               <div class="post-details4  mb-50">
@@ -277,7 +276,7 @@
         $.ajax({
           url:"fetch_candidate_details.php",
           type: "POST",
-          data: 'round_number='+round_number,
+          data: 'id='+<?php echo $_GET['post_id'];?>+'&round_number='+round_number,
           dataType:"json",
           cache:false,
           processData:false,

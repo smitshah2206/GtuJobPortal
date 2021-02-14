@@ -260,11 +260,12 @@
 		$job_vacancies= $value['job_vacancies'];
 		$job_type= $value['job_type'];
 		$job_location= $value['job_location'];
+		$job_url= $value['job_url'];
 		$job_eligiblity= $value['job_eligiblity'];
 		$job_description= $value['job_description'];
 		$id = $idvalue;
 
-		$sql= "INSERT INTO `job_post`(`job_title`, `job_ctc`, `job_deadlinedate`, `job_vacancies`, `job_type`, `job_location`, `job_eligiblity`, `job_description`, `status`, `created_by`) VALUES ('".$job_title."','".$job_ctc."','".$job_deadlinedate."','".$job_vacancies."','".$job_type."','".$job_location."','".$job_eligiblity."','".$job_description."','4','".$id."')";
+		$sql= "INSERT INTO `job_post`(`job_title`, `job_ctc`, `job_deadlinedate`, `job_vacancies`, `job_type`, `job_location`,`exam_url`, `job_eligiblity`, `job_description`, `status`, `created_by`) VALUES ('".$job_title."','".$job_ctc."','".$job_deadlinedate."','".$job_vacancies."','".$job_type."','".$job_location."','".$job_url."','".$job_eligiblity."','".$job_description."','4','".$id."')";
 		$result = mysqli_query($conn,$sql);
 		if($result)
 		{
@@ -292,10 +293,11 @@
 		$job_vacancies= $value['job_vacancies'];
 		$job_type= $value['job_type'];
 		$job_location= $value['job_location'];
+		$job_url= $value['job_url'];
 		$job_eligiblity= $value['job_eligiblity'];
 		$job_description= $value['job_description'];
 		
-		$sql = " UPDATE `job_post` SET `job_title` = '".$job_title."',`job_ctc` = '".$job_ctc."',`job_deadlinedate` = '".$job_deadlinedate."',`job_vacancies` = '".$job_vacancies."',`job_type` = '".$job_type."',`job_location` = '".$job_location."',`job_eligiblity` = '".$job_eligiblity."',`job_description` = '".$job_description."' WHERE `id` = '".$post_id."'";
+		$sql = " UPDATE `job_post` SET `job_title` = '".$job_title."',`job_ctc` = '".$job_ctc."',`job_deadlinedate` = '".$job_deadlinedate."',`job_vacancies` = '".$job_vacancies."',`job_type` = '".$job_type."',`job_location` = '".$job_location."',`exam_url`='".$job_url."',`job_eligiblity` = '".$job_eligiblity."',`job_description` = '".$job_description."' WHERE `id` = '".$post_id."'";
 		$result = mysqli_query($conn,$sql);
 		if($result)
 		{
@@ -368,9 +370,9 @@
 		}
 	}
 
-	function total_candidate($conn,$limit='',$status='',$desc='',$employee_name='',$employee_location='')
+	function total_candidate($conn,$limit='',$status='',$desc='',$employee_name='',$employee_location='',$employee_skill='')
 	{
-		if (!empty(trim($employee_name)) OR !empty(trim($employee_location))) {
+		if (!empty(trim($employee_name)) OR !empty(trim($employee_location)) OR !empty(trim($employee_skill))) {
 			$employeeValidation = 1;
 		} else {
 			$employeeValidation = 0;
@@ -399,6 +401,13 @@
 				$sql .=" AND";
 			}
 			$sql .= " (`district` LIKE '%".$employee_location."%') ";
+		}
+
+		if (!empty(trim($employee_skill))) {
+			if ($status OR !empty(trim($employee_name)) OR !empty(trim($employee_location))) {
+				$sql .=" AND";
+			}
+			$sql .= " (`intrestarea` LIKE '%".$employee_skill."%') ";
 		}
 
 		if($desc){

@@ -1,4 +1,5 @@
 <?php
+ $titlename = "Job Applied";
  include 'header.php';
  if(isset($_GET['post_id'])){
   $id = $_GET['post_id'];

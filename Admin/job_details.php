@@ -1,5 +1,6 @@
 
     <?php
+      $titlename = "Job Details";
       include 'header.php';
       if(isset($_GET['post_id'])){
         $id = $_GET['post_id'];
@@ -157,6 +158,7 @@
                   <li>Job nature : <span><?php echo $current_job_details['job_type']; ?></span></li>
                   <li>Salary : <span><?php echo $current_job_details['job_ctc']; ?> INR</span></li>
                   <li>Last Application date : <span><?php echo $current_job_details['job_deadlinedate']; ?></span></li>
+                  <li>Exam Url : <span><a href="<?php echo $current_job_details['exam_url']; ?>" target="_blank">Click Here</a></span></li>
                 </ul>
                 <?php
                   if (isset($_GET['status'])) {

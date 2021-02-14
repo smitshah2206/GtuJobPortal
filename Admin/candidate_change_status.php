@@ -1,4 +1,5 @@
 <?php
+	$titlename = "Candidate Change Status";
 	include 'header.php';
 	if (isset($_GET['employee_id']) && !empty(trim($_GET['employee_id'])) && isset($_GET['status']) && !empty(trim($_GET['status']))) {
 		$employee_id = $_GET['employee_id'];

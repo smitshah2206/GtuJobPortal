@@ -1,10 +1,12 @@
     <?php
+      $titlename = 'Search Job/Candidate';
       include 'header.php';
       $job_category = '';
       $job_type = '';
       $job_location = '';
       $employee_name = '';
       $employee_location = '';
+      $employee_skill = '';
 
       $fullTimeValidation = '';
       $partTimeValidation = '';
@@ -38,23 +40,29 @@
       if (isset($_GET['employee_location'])) {
         $employee_location = trim($_GET['employee_location']);
       }
+      if (isset($_GET['employee_skill'])) {
+        $employee_skill = trim($_GET['employee_skill']);
+      }
 
       if ($type == 'Employee') {
-        $total_candidate = total_candidate($conn,'',2,'id',$employee_name,$employee_location);
+        $total_candidate = total_candidate($conn,'',2,'id',$employee_name,$employee_location,$employee_skill);
+        $stayle_number = 3;
       } else if ($type == 'Company') {
         $allpost_job = employee_total_post_job($conn,10,'job_deadlinedate',$job_category,$job_type,$job_location);
+        $stayle_number = 2;
       }
       $job_category_list = job_category($conn);
       $job_location_list = job_location($conn);
       $find_candidate_list = find_candidate($conn);
+      $find_skill_list = find_skill($conn);
       $candidate_location_list = find_location($conn);
     ?>
     <style type="text/css">
-      .ftco-navbar-light .navbar-nav > .nav-item:nth-child(3) > .nav-link
+      .ftco-navbar-light .navbar-nav > .nav-item:nth-child(<?php echo $stayle_number;?>) > .nav-link
       {
         color: #95a5a6;
       }
-      .ftco-navbar-light.scrolled .nav-item:nth-child(3) > a
+      .ftco-navbar-light.scrolled .nav-item:nth-child(<?php echo $stayle_number;?>) > a
       {
         color: #157efb !important;
       }
@@ -98,6 +106,27 @@
                                      } 
                                   ?>
                             </datalist>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md">
+                        <div class="form-group">
+                          <div class="form-field">
+                            <div class="select-wrap">
+                              <div class="icon">
+                                <span class="icon-briefcase"></span>
+                              </div>
+                              <input type="text" class="form-control" name="employee_skill" placeholder="eg. Web Devloper" value="<?php echo $employee_skill;?>" list="employee_skill" autocomplete="off">
+                            <datalist id="employee_skill">
+                                      <?php
+                                        while ($row = mysqli_fetch_array($find_skill_list)){
+                                          ?>
+                                            <option value="<?php echo $row['intrestarea'];?>">
+                                          <?php
+                                         } 
+                                      ?>
+                                    </datalist>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -278,8 +307,9 @@
                           </div>
                         </div>
 
-                        <div class="ml-auto d-flex">
+                        <div class="ml-auto d-flex justify-content-center align-items-center flex-column">
                           <a href="job_details.php?post_id=<?php echo $row['id']; ?>" class="btn btn-primary py-2 mr-1">More Details</a>
+                          <span><?php echo date("F d, Y",strtotime($row['job_deadlinedate']));?></span>
                         </div>
                       </div>
                     </div>
