@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2021 at 06:31 AM
+-- Generation Time: Feb 19, 2021 at 07:41 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -54,6 +54,14 @@ CREATE TABLE `blog` (
   `description` varchar(255) NOT NULL,
   `created_time` timestamp(6) NOT NULL DEFAULT current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`id`, `image`, `heading`, `description`, `created_time`) VALUES
+(1, '1613284526.png', 'Helllo', 'lalallalalla', '2021-02-14 06:33:03.842598'),
+(2, '1613284459.png', 'Helllo', 'nnnnnnnnnnnnnnnnnnnnnnnnnnnn', '2021-02-14 06:33:18.293530');
 
 -- --------------------------------------------------------
 
@@ -106,6 +114,14 @@ CREATE TABLE `contact` (
   `read_unread_status` int(1) NOT NULL DEFAULT 1,
   `created_time` timestamp(6) NOT NULL DEFAULT current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `name`, `email`, `subject`, `message`, `status`, `read_unread_status`, `created_time`) VALUES
+(1, 'Smit Shah', 'smitshah22050602@gmail.com', 'Hello', 'aaaaaaaaaaaaaaaaaaa', 4, 1, '2021-02-14 06:35:50.813404'),
+(2, 'aaaaaaaaaaa', 'smitshah@gmail.com', 'ddddfdf', 'ssewewew', 4, 1, '2021-02-14 06:38:02.267753');
 
 -- --------------------------------------------------------
 
@@ -234,6 +250,13 @@ CREATE TABLE `page` (
   `contact_website` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `page`
+--
+
+INSERT INTO `page` (`id`, `about_info`, `contact_address`, `contact_number`, `contact_email`, `contact_website`) VALUES
+(1, 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', 'Ahmedabad , Gujarat', '1234567890', 'info@gmail.com', 'https://www.yoursite.com');
+
 -- --------------------------------------------------------
 
 --
@@ -277,6 +300,29 @@ INSERT INTO `status` (`id`, `type`) VALUES
 (3, 'Deleted'),
 (4, 'Created'),
 (5, 'Verification Pending');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `testimonial`
+--
+
+CREATE TABLE `testimonial` (
+  `id` int(11) NOT NULL,
+  `person_name` varchar(255) NOT NULL,
+  `person_designation` varchar(255) NOT NULL,
+  `person_image` varchar(255) NOT NULL,
+  `person_message` varchar(255) NOT NULL,
+  `created_at` timestamp(6) NOT NULL DEFAULT current_timestamp(6)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `testimonial`
+--
+
+INSERT INTO `testimonial` (`id`, `person_name`, `person_designation`, `person_image`, `person_message`, `created_at`) VALUES
+(1, 'Roger Scott', 'MARKETING MANAGER', '1613714819.jpg', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', '2021-02-19 06:06:59.885010'),
+(2, 'ABCdddddddddd', 'MARKETING MANAGER', '1613716495.jpg', 'sdsssssssssssss', '2021-02-19 06:33:13.296059');
 
 --
 -- Indexes for dumped tables
@@ -349,6 +395,12 @@ ALTER TABLE `status`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `testimonial`
+--
+ALTER TABLE `testimonial`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -362,7 +414,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `company`
@@ -374,7 +426,7 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employee`
@@ -404,7 +456,7 @@ ALTER TABLE `news_letter`
 -- AUTO_INCREMENT for table `page`
 --
 ALTER TABLE `page`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `round_status`
@@ -417,6 +469,12 @@ ALTER TABLE `round_status`
 --
 ALTER TABLE `status`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `testimonial`
+--
+ALTER TABLE `testimonial`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
