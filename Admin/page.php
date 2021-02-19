@@ -184,6 +184,20 @@
           $testimonialId = $row['id'];
           $personMessage = $row['person_message'];
       }
+      if (isset($_GET['deleteTestimonial']) && !empty(trim($_GET['deleteTestimonial'])) && isset($_GET['deleteId']) && !empty(trim($_GET['deleteId']))) {
+        if(testimonial_delete($conn,$_GET['deleteId']))
+        {
+          $msg = 'Testimonial Deleted .!';
+          $link = BASE_URL.'Admin/page.php';
+          redirect_link($msg,$link);
+        }
+        else
+        {
+          $msg = 'Some thing went wrong .!';
+          $link = BASE_URL.'Admin/page.php';
+          redirect_link($msg,$link);
+        }
+      }
     ?>
     <style type="text/css">
       .ftco-navbar-light .navbar-nav > .nav-item:nth-child(5) > .nav-link
@@ -442,6 +456,7 @@
                           </div>
                           <div class="text">
                             <a href="page.php?addTestimonial=1&id=<?php echo $row['id'];?>" class="btn btn-warning btn-sm">Edit Details</a>
+                            <a href="page.php?deleteTestimonial=1&deleteId=<?php echo $row['id'];?>" class="btn btn-danger btn-sm">Delete Details</a>
                           </div>
                         </div>
                       </div>

@@ -278,26 +278,6 @@
 			return 0;
 		}
 	}
-	function testimonial_list($conn)
-	{
-		$sql = "SELECT * FROM `testimonial` ORDER BY `id` DESC";
-		$result = mysqli_query($conn,$sql);
-		if($result)
-		{
-			if(mysqli_affected_rows($conn))
-			{
-				return $result;
-			}
-			else
-			{
-				return 0;
-			}
-		}
-		else
-		{
-			return false;
-		}
-	}
 	function fetch_testimonial_details($conn,$id){
 		$sql = "SELECT * FROM `testimonial` WHERE `id` = '".$id."'";
 		$result = mysqli_query($conn,$sql);
@@ -352,6 +332,26 @@
 	    move_uploaded_file($personImage_temp_name, $url);
         $personMessage = $value['personMessage'];
 		$sql= "UPDATE `testimonial` SET `person_name` = '".$personName."', `person_designation` = '".$personDesignation."', `person_image` = '".$personImage_name."', `person_message` = '".$personMessage."' WHERE `id` = '".$id."'";
+		$result = mysqli_query($conn,$sql);
+		if($result)
+		{
+			if(mysqli_affected_rows($conn))
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	function testimonial_delete($conn,$id)
+	{
+		$sql= "DELETE FROM `testimonial` WHERE `id` = '".$id."'";
 		$result = mysqli_query($conn,$sql);
 		if($result)
 		{

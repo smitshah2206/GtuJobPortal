@@ -541,4 +541,24 @@
 			return 0;
 		}
 	}
+	function testimonial_list($conn)
+	{
+		$sql = "SELECT * FROM `testimonial` ORDER BY `id` DESC";
+		$result = mysqli_query($conn,$sql);
+		if($result)
+		{
+			if(mysqli_affected_rows($conn))
+			{
+				return $result;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
 ?>

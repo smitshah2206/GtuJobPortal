@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2021 at 07:41 AM
+-- Generation Time: Feb 19, 2021 at 08:46 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -321,8 +321,10 @@ CREATE TABLE `testimonial` (
 --
 
 INSERT INTO `testimonial` (`id`, `person_name`, `person_designation`, `person_image`, `person_message`, `created_at`) VALUES
-(1, 'Roger Scott', 'MARKETING MANAGER', '1613714819.jpg', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', '2021-02-19 06:06:59.885010'),
-(2, 'ABCdddddddddd', 'MARKETING MANAGER', '1613716495.jpg', 'sdsssssssssssss', '2021-02-19 06:33:13.296059');
+(2, 'ABC DEF', 'MARKETING MANAGER', '1613716495.jpg', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', '2021-02-19 06:33:13.296059'),
+(3, 'GHI JKL', 'Web Developer', '1613763036.jpg', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', '2021-02-19 19:30:36.543310'),
+(4, 'MNO PQR', 'System Analyst', '1613763564.jpg', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', '2021-02-19 19:34:47.673187'),
+(5, 'STU VWX', 'Interface Designer', '1613763287.jpg', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', '2021-02-19 19:37:46.000000');
 
 --
 -- Indexes for dumped tables
@@ -474,7 +476,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `testimonial`
 --
 ALTER TABLE `testimonial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
