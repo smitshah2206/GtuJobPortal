@@ -9,9 +9,12 @@
 	define('Company_Logo_Url', PROTOCOL_SECURE.'://'.HOST_NAME.'/'.ROOT_FOLDER.'/CompanyLogo/');
 	define('Employee_Cv_Url', PROTOCOL_SECURE.'://'.HOST_NAME.'/'.ROOT_FOLDER.'/Cv/');
 	define('Blog_Image_Url', PROTOCOL_SECURE.'://'.HOST_NAME.'/'.ROOT_FOLDER.'/BlogImage/');
+	define('Testimonial_Image_Url', PROTOCOL_SECURE.'://'.HOST_NAME.'/'.ROOT_FOLDER.'/TestimonialImage/');
+
 	define('Company_Logo_Upload_Url', '../CompanyLogo/');
 	define('Employee_Cv_Upload_Url', '../Cv/');
 	define('Blog_Image_Upload_Url', '../BlogImage/');
+	define('Testimonial_Image_Upload_Url', '../TestimonialImage/');
 	function dashboard_session()
 	{
 		if(isset($_SESSION['type']))
@@ -495,6 +498,43 @@
 			{
 				return 0;
 			}
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	function admin_get_field($conn,$fieldName)
+	{
+		$sql= "SELECT * FROM `page`";
+
+		$result = mysqli_query($conn,$sql);
+		if($result)
+		{
+			if(mysqli_affected_rows($conn))
+			{
+				while ($row = mysqli_fetch_array($result)) {
+					$name = $row[$fieldName];
+				}
+				return $name;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	function admin_set_field($conn,$fieldName,$value)
+	{
+		$sql= "UPDATE `page` SET `$fieldName` = '".$value."'";
+		$result = mysqli_query($conn,$sql);
+		if($result)
+		{
+			return 1;
 		}
 		else
 		{

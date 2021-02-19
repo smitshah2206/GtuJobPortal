@@ -122,6 +122,9 @@
 
                   <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
 
+                    <div class="d-flex mr-5">
+                      <a href="<?php echo $row['company_website']; ?>" target = "_blank"><img src="<?php echo Company_Logo_Url.$row['company_logo']; ?>" alt="<?php echo $row['company_name']; ?>" style = 'background-size: cover;width:70px;height:70px;'></a>
+                    </div>
                     <div class="mb-4 mb-md-0 mr-5">
                       <div class="job-post-item-header d-flex align-items-center">
                         <h2 class="mr-3 text-black h3"><?php echo $row['firstname'].' '.$row['middlename'].' '.$row['lastname'];?></h2>

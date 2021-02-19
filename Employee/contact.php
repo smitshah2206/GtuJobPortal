@@ -1,6 +1,10 @@
     <?php
       $titlename = "Contact Us";
       include 'header.php';
+      $editContactAddress = admin_get_field($conn,'contact_address');
+      $editContactNumber = admin_get_field($conn,'contact_number');
+      $editContactEmail = admin_get_field($conn,'contact_email');
+      $editContactWebsite = admin_get_field($conn,'contact_website');
       $name_msg = '';
       $email_msg = '';
       $subject_msg = '';
@@ -135,16 +139,20 @@
           </div>
           <div class="w-100"></div>
           <div class="col-md-3">
-            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+            <p><span>Address:</span><br>
+              <?php echo $editContactAddress;?></p>
           </div>
           <div class="col-md-3">
-            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+            <p><span>Phone:</span><br>
+              <a href="javascript:void(0)">+91-<?php echo $editContactNumber;?></a></p>
           </div>
           <div class="col-md-3">
-            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+            <p><span>Email:</span><br>
+              <a href="javascript:void(0)"><?php echo $editContactEmail;?></a></p>
           </div>
           <div class="col-md-3">
-            <p><span>Website</span> <a href="#">yoursite.com</a></p>
+            <p><span>Website</span><br>
+              <a href="#"><?php echo $editContactWebsite;?></a></p>
           </div>
         </div>
         <div class="row block-9">

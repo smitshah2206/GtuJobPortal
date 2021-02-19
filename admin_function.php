@@ -278,4 +278,95 @@
 			return 0;
 		}
 	}
+	function testimonial_list($conn)
+	{
+		$sql = "SELECT * FROM `testimonial` ORDER BY `id` DESC";
+		$result = mysqli_query($conn,$sql);
+		if($result)
+		{
+			if(mysqli_affected_rows($conn))
+			{
+				return $result;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+	function fetch_testimonial_details($conn,$id){
+		$sql = "SELECT * FROM `testimonial` WHERE `id` = '".$id."'";
+		$result = mysqli_query($conn,$sql);
+		if($result)
+		{
+			return $result;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	function testimonial_insert($conn,$value,$filevalue)
+	{
+		$personName = $value['personName']; 
+        $personDesignation = $value['personDesignation']; 
+        $personImage = $filevalue['personImage'];
+        $personImage_temp_name = $filevalue['personImage']['tmp_name'];
+	    $personImage_extension = pathinfo($filevalue['personImage']['name'],PATHINFO_EXTENSION);
+	    $personImage_name = time().'.'.$personImage_extension;
+	    $url = Testimonial_Image_Upload_Url.$personImage_name;
+	    move_uploaded_file($personImage_temp_name, $url);
+        $personMessage = $value['personMessage'];
+		$sql= "INSERT INTO `testimonial` (`person_name`, `person_designation`, `person_image`, `person_message`) VALUES ('".$personName."','".$personDesignation."','".$personImage_name."','".$personMessage."')";
+		$result = mysqli_query($conn,$sql);
+		if($result)
+		{
+			if(mysqli_affected_rows($conn))
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+		else
+		{
+			return 0;
+		}
+	}
+
+	function testimonial_update($conn,$value,$filevalue,$id)
+	{	
+		$personName = $value['personName']; 
+        $personDesignation = $value['personDesignation']; 
+        $personImage = $filevalue['personImage'];
+        $personImage_temp_name = $filevalue['personImage']['tmp_name'];
+	    $personImage_extension = pathinfo($filevalue['personImage']['name'],PATHINFO_EXTENSION);
+	    $personImage_name = time().'.'.$personImage_extension;
+	    $url = Testimonial_Image_Upload_Url.$personImage_name;
+	    move_uploaded_file($personImage_temp_name, $url);
+        $personMessage = $value['personMessage'];
+		$sql= "UPDATE `testimonial` SET `person_name` = '".$personName."', `person_designation` = '".$personDesignation."', `person_image` = '".$personImage_name."', `person_message` = '".$personMessage."' WHERE `id` = '".$id."'";
+		$result = mysqli_query($conn,$sql);
+		if($result)
+		{
+			if(mysqli_affected_rows($conn))
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+		else
+		{
+			return 0;
+		}
+	}
 ?>
