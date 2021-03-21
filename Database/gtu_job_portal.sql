@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2021 at 09:45 AM
+-- Generation Time: Mar 21, 2021 at 07:40 PM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.2
+-- PHP Version: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -97,7 +97,7 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`id`, `firstname`, `middlename`, `lastname`, `email`, `password`, `contactnumber`, `company_name`, `company_website`, `company_about`, `company_contry`, `company_state`, `company_district`, `whatsapp`, `facebook`, `linkedin`, `company_logo`, `status`, `created_time`) VALUES
-(1, 'Smit', 'Rupeshkumar', 'Shah', 'smitshah22050602@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', '8849364239', 'Yottol', 'https://www.yottol.com/', 'Null', 'India', 'Gujarat', 'Ahmedabad', '9409324362', '', '', '1613234170.png', 2, '2021-02-13 16:34:24.641412'),
+(1, 'Smit', 'Rupeshkumar', 'Shah', 'smitshah22050602@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', '8849364239', 'Yottol Private Ltd.', 'https://www.yottol.com/', 'Null', 'India', 'Gujarat', 'Ahmedabad', '9409324362', '', '', '1616349368.png', 2, '2021-02-13 16:34:24.641412'),
 (2, 'Company', 'Company', 'Company', 'company@gmail.com', 'ee914d2e8acab80b3fb129cd73e70b0e', '7227885483', 'Company', 'https://www.company.com', 'About', 'India', 'Gujarat', 'Ahmedabad', '7227885483', '', '', '1613818307.jpg', 2, '2021-02-20 10:28:53.084814'),
 (3, 'new', '', 'company', 'company2@gmail.com', '102a23a0e4661368943dacb516a18cc8', '', '', '', '', '', '', '', '', '', '', '', 1, '2021-03-02 07:55:18.460110'),
 (4, 'Alex', 'A', 'White', 'alex@radixweb.com', '25f9e794323b453885f5181f1b624d0b', '5555555555', 'Radixweb', 'https://radixweb.com', 'Software Development', 'India', 'Gujarat', 'Ahmedabad', '', '', '', '1615203423.jpg', 2, '2021-03-08 11:32:41.013843');
@@ -149,7 +149,12 @@ CREATE TABLE `employee` (
   `contry` varchar(255) NOT NULL,
   `state` varchar(255) NOT NULL,
   `district` varchar(255) NOT NULL,
+  `masterColleagename` varchar(255) NOT NULL,
+  `masterCourseName` varchar(255) NOT NULL,
+  `masterSgpa` varchar(255) NOT NULL,
+  `masterGraduationyear` varchar(255) NOT NULL,
   `colleagename` varchar(255) NOT NULL,
+  `bachelorCourseName` varchar(255) NOT NULL,
   `sgpa` varchar(255) NOT NULL,
   `graduationyear` varchar(255) NOT NULL,
   `hscschoolname` varchar(255) NOT NULL,
@@ -160,6 +165,7 @@ CREATE TABLE `employee` (
   `sscboardname` varchar(255) NOT NULL,
   `ssccgpa` varchar(255) NOT NULL,
   `sscyear` varchar(255) NOT NULL,
+  `workDetails` varchar(10) NOT NULL,
   `coverletter` varchar(255) NOT NULL,
   `intrestarea` varchar(255) NOT NULL,
   `resume` varchar(255) NOT NULL,
@@ -175,13 +181,13 @@ CREATE TABLE `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`id`, `firstname`, `middlename`, `lastname`, `enrollmentno`, `email`, `password`, `contactnumber`, `dateofbirth`, `gender`, `contry`, `state`, `district`, `colleagename`, `sgpa`, `graduationyear`, `hscschoolname`, `hscboardname`, `hsccgpa`, `hscyear`, `sscschoolname`, `sscboardname`, `ssccgpa`, `sscyear`, `coverletter`, `intrestarea`, `resume`, `whatsapp`, `github`, `linkedin`, `skype`, `status`, `created_time`) VALUES
-(1, 'smit', 'Rupeshkumar', 'Shah', '123456789012', 'smitshah22050602@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', '8849364239', '2021-02-13', 'Male', 'India', 'Gujarat', 'Ahmedabad', 'Indus University', '9', '2024', 'Navchetan', 'Gujarat Board', '70', '2026', 'Navchetan', 'Gujarat Board', '80', '2026', '', 'Web Devloper', '1613234636.pdf', '', '', '', '', 2, '2021-02-13 21:58:41.190264'),
-(2, 'Rutvik', 'V', 'Jaimalani', '171250107012', 'rvj12899@gmail.com', '25f9e794323b453885f5181f1b624d0b', '7227885483', '1999-08-12', 'Male', 'India', 'Gujarat', 'Ahmedabad', 'SSIT ', '8', '2021', 'Skum ', 'Gujarat Board', '85', '2017', 'Skum ', 'Gujarat Board', '80', '2015', '', '', '1615197138.pdf', '7227885483', '', '', '', 2, '2021-02-20 15:42:04.714503'),
-(8, 'Candidate', '', 'Ahmedabad', '171250107001', 'candidate1@gmail.com', '102a23a0e4661368943dacb516a18cc8', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, '2021-03-02 21:28:55.934587'),
-(9, 'R', '', 'V', '171250107002', 'r@gmail.com', '102a23a0e4661368943dacb516a18cc8', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, '2021-03-06 15:17:35.966741'),
-(10, 'Hemal', 'Amitbhai', 'Patel', '151250107001', 'hemal@gmail.com', '25f9e794323b453885f5181f1b624d0b', '8888888888', '1997-01-02', 'Male', 'India', 'Gujarat', 'Ahmedabad', 'ADIT BE IT', '8.5', '2019', 'HBK', 'CBSE', '80', '2015', 'HBK', 'CBSE', '85', '2013', 'BE IT \r\n2 YEAR EXPERIENCE', '', '1615199274.pdf', '', '', '', '', 2, '2021-03-08 15:51:29.253981'),
-(11, 'KUNJ', 'Pravinbhai', 'PATEL', '161250107001', 'kunj@gmail.com', '25f9e794323b453885f5181f1b624d0b', '7777777777', '1999-01-08', 'Male', 'India', 'Gujarat', 'Ahmedabad', 'silveroak BE CE', '8.6', '2020', 'HBK', 'CBSE', '85', '2016', 'HBK', 'CBSE', '85', '2014', '', '', '1615199758.pdf', '', '', '', '', 2, '2021-03-08 16:01:42.803794');
+INSERT INTO `employee` (`id`, `firstname`, `middlename`, `lastname`, `enrollmentno`, `email`, `password`, `contactnumber`, `dateofbirth`, `gender`, `contry`, `state`, `district`, `masterColleagename`, `masterCourseName`, `masterSgpa`, `masterGraduationyear`, `colleagename`, `bachelorCourseName`, `sgpa`, `graduationyear`, `hscschoolname`, `hscboardname`, `hsccgpa`, `hscyear`, `sscschoolname`, `sscboardname`, `ssccgpa`, `sscyear`, `workDetails`, `coverletter`, `intrestarea`, `resume`, `whatsapp`, `github`, `linkedin`, `skype`, `status`, `created_time`) VALUES
+(1, 'smit', 'Rupeshkumar', 'Shah', '123456789012', 'smitshah22050602@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', '8849364239', '2021-02-13', 'Male', 'India', 'Gujarat', 'Ahmedabad', 'AAA', 'AAA', '88', '2025', 'Indus University', 'CSE', '9', '2024', 'Navchetan', 'Gujarat Board', '70', '2026', 'Navchetan', 'Gujarat Board', '80', '2026', 'Experiance', '', 'Web Devloper', '1616350488.pdf', '', '', '', '', 2, '2021-02-13 21:58:41.190264'),
+(2, 'Rutvik', 'V', 'Jaimalani', '171250107012', 'rvj12899@gmail.com', '25f9e794323b453885f5181f1b624d0b', '7227885483', '1999-08-12', 'Male', 'India', 'Gujarat', 'Ahmedabad', '', '', '', '', 'SSIT ', '', '8', '2021', 'Skum ', 'Gujarat Board', '85', '2017', 'Skum ', 'Gujarat Board', '80', '2015', 'Fresher', '', '', '1615197138.pdf', '7227885483', '', '', '', 2, '2021-02-20 15:42:04.714503'),
+(8, 'Candidate', '', 'Ahmedabad', '171250107001', 'candidate1@gmail.com', '102a23a0e4661368943dacb516a18cc8', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, '2021-03-02 21:28:55.934587'),
+(9, 'R', '', 'V', '171250107002', 'r@gmail.com', '102a23a0e4661368943dacb516a18cc8', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, '2021-03-06 15:17:35.966741'),
+(10, 'Hemal', 'Amitbhai', 'Patel', '151250107001', 'hemal@gmail.com', '25f9e794323b453885f5181f1b624d0b', '8888888888', '1997-01-02', 'Male', 'India', 'Gujarat', 'Ahmedabad', '', '', '', '', 'ADIT BE IT', '', '8.5', '2019', 'HBK', 'CBSE', '80', '2015', 'HBK', 'CBSE', '85', '2013', 'Fresher', 'BE IT \r\n2 YEAR EXPERIENCE', '', '1615199274.pdf', '', '', '', '', 2, '2021-03-08 15:51:29.253981'),
+(11, 'KUNJ', 'Pravinbhai', 'PATEL', '161250107001', 'kunj@gmail.com', '25f9e794323b453885f5181f1b624d0b', '7777777777', '1999-01-08', 'Male', 'India', 'Gujarat', 'Ahmedabad', 'XXX', '', '', '', 'silveroak', 'BE CE', '8.6', '2020', 'HBK', 'CBSE', '85', '2016', 'HBK', 'CBSE', '85', '2014', 'Experiance', '', '', '1615199758.pdf', '', '', '', '', 2, '2021-03-08 16:01:42.803794');
 
 -- --------------------------------------------------------
 
@@ -444,7 +450,7 @@ ALTER TABLE `blog`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `contact`
