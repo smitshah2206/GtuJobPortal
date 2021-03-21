@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2021 at 08:46 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- Generation Time: Mar 21, 2021 at 09:45 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,8 +60,9 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id`, `image`, `heading`, `description`, `created_time`) VALUES
-(1, '1613284526.png', 'Helllo', 'lalallalalla', '2021-02-14 06:33:03.842598'),
-(2, '1613284459.png', 'Helllo', 'nnnnnnnnnnnnnnnnnnnnnnnnnnnn', '2021-02-14 06:33:18.293530');
+(1, '1615201942.jpg', 'What are the best career blogs?', 'Top 100 Career Blogs, Websites & Influencers in 2020. 1 1. Work It Daily. Hampton, New Hampshire, United States About Blog Work It Daily is an online learning platform that provides trusted, easy-to-use ', '2021-02-14 06:33:03.842598'),
+(2, '1615201861.jpg', 'Helllo', 'blog1', '2021-02-14 06:33:18.293530'),
+(3, '1615206602.jpg', 'Starting a New Blog', 'What started out as a simple solution for content creation, has now evolved into one of the most revolutionary platforms and companies on the internet today. And when you consider the thousands of plugins and themes available for WordPress', '2021-02-20 11:06:35.292305');
 
 -- --------------------------------------------------------
 
@@ -96,7 +97,10 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`id`, `firstname`, `middlename`, `lastname`, `email`, `password`, `contactnumber`, `company_name`, `company_website`, `company_about`, `company_contry`, `company_state`, `company_district`, `whatsapp`, `facebook`, `linkedin`, `company_logo`, `status`, `created_time`) VALUES
-(1, 'Smit', 'Rupeshkumar', 'Shah', 'smitshah22050602@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', '8849364239', 'Yottol', 'https://www.yottol.com/', 'Null', 'India', 'Gujarat', 'Ahmedabad', '9409324362', '', '', '1613234170.png', 2, '2021-02-13 16:34:24.641412');
+(1, 'Smit', 'Rupeshkumar', 'Shah', 'smitshah22050602@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', '8849364239', 'Yottol', 'https://www.yottol.com/', 'Null', 'India', 'Gujarat', 'Ahmedabad', '9409324362', '', '', '1613234170.png', 2, '2021-02-13 16:34:24.641412'),
+(2, 'Company', 'Company', 'Company', 'company@gmail.com', 'ee914d2e8acab80b3fb129cd73e70b0e', '7227885483', 'Company', 'https://www.company.com', 'About', 'India', 'Gujarat', 'Ahmedabad', '7227885483', '', '', '1613818307.jpg', 2, '2021-02-20 10:28:53.084814'),
+(3, 'new', '', 'company', 'company2@gmail.com', '102a23a0e4661368943dacb516a18cc8', '', '', '', '', '', '', '', '', '', '', '', 1, '2021-03-02 07:55:18.460110'),
+(4, 'Alex', 'A', 'White', 'alex@radixweb.com', '25f9e794323b453885f5181f1b624d0b', '5555555555', 'Radixweb', 'https://radixweb.com', 'Software Development', 'India', 'Gujarat', 'Ahmedabad', '', '', '', '1615203423.jpg', 2, '2021-03-08 11:32:41.013843');
 
 -- --------------------------------------------------------
 
@@ -120,8 +124,10 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id`, `name`, `email`, `subject`, `message`, `status`, `read_unread_status`, `created_time`) VALUES
-(1, 'Smit Shah', 'smitshah22050602@gmail.com', 'Hello', 'aaaaaaaaaaaaaaaaaaa', 4, 1, '2021-02-14 06:35:50.813404'),
-(2, 'aaaaaaaaaaa', 'smitshah@gmail.com', 'ddddfdf', 'ssewewew', 4, 1, '2021-02-14 06:38:02.267753');
+(1, 'Smit Shah', 'smitshah22050602@gmail.com', 'Hello', 'aaaaaaaaaaaaaaaaaaa', 4, 0, '2021-02-14 06:35:50.813404'),
+(2, 'aaaaaaaaaaa', 'smitshah@gmail.com', 'ddddfdf', 'ssewewew', 4, 0, '2021-02-14 06:38:02.267753'),
+(3, 'R', 'rvj12899@gmail.com', 'INQUIRY', 'testing function', 4, 0, '2021-02-20 10:23:49.005233'),
+(4, 'Rvj', 'rvj12899@gmail.com', 'Inquiry for job', 'ok', 4, 1, '2021-03-09 05:59:41.156235');
 
 -- --------------------------------------------------------
 
@@ -170,7 +176,12 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`id`, `firstname`, `middlename`, `lastname`, `enrollmentno`, `email`, `password`, `contactnumber`, `dateofbirth`, `gender`, `contry`, `state`, `district`, `colleagename`, `sgpa`, `graduationyear`, `hscschoolname`, `hscboardname`, `hsccgpa`, `hscyear`, `sscschoolname`, `sscboardname`, `ssccgpa`, `sscyear`, `coverletter`, `intrestarea`, `resume`, `whatsapp`, `github`, `linkedin`, `skype`, `status`, `created_time`) VALUES
-(1, 'smit', 'Rupeshkumar', 'Shah', '123456789012', 'smitshah22050602@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', '8849364239', '2021-02-13', 'Male', 'India', 'Gujarat', 'Ahmedabad', 'Indus University', '9', '2024', 'Navchetan', 'Gujarat Board', '70', '2026', 'Navchetan', 'Gujarat Board', '80', '2026', '', 'Web Devloper', '1613234636.pdf', '', '', '', '', 2, '2021-02-13 21:58:41.190264');
+(1, 'smit', 'Rupeshkumar', 'Shah', '123456789012', 'smitshah22050602@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', '8849364239', '2021-02-13', 'Male', 'India', 'Gujarat', 'Ahmedabad', 'Indus University', '9', '2024', 'Navchetan', 'Gujarat Board', '70', '2026', 'Navchetan', 'Gujarat Board', '80', '2026', '', 'Web Devloper', '1613234636.pdf', '', '', '', '', 2, '2021-02-13 21:58:41.190264'),
+(2, 'Rutvik', 'V', 'Jaimalani', '171250107012', 'rvj12899@gmail.com', '25f9e794323b453885f5181f1b624d0b', '7227885483', '1999-08-12', 'Male', 'India', 'Gujarat', 'Ahmedabad', 'SSIT ', '8', '2021', 'Skum ', 'Gujarat Board', '85', '2017', 'Skum ', 'Gujarat Board', '80', '2015', '', '', '1615197138.pdf', '7227885483', '', '', '', 2, '2021-02-20 15:42:04.714503'),
+(8, 'Candidate', '', 'Ahmedabad', '171250107001', 'candidate1@gmail.com', '102a23a0e4661368943dacb516a18cc8', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, '2021-03-02 21:28:55.934587'),
+(9, 'R', '', 'V', '171250107002', 'r@gmail.com', '102a23a0e4661368943dacb516a18cc8', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, '2021-03-06 15:17:35.966741'),
+(10, 'Hemal', 'Amitbhai', 'Patel', '151250107001', 'hemal@gmail.com', '25f9e794323b453885f5181f1b624d0b', '8888888888', '1997-01-02', 'Male', 'India', 'Gujarat', 'Ahmedabad', 'ADIT BE IT', '8.5', '2019', 'HBK', 'CBSE', '80', '2015', 'HBK', 'CBSE', '85', '2013', 'BE IT \r\n2 YEAR EXPERIENCE', '', '1615199274.pdf', '', '', '', '', 2, '2021-03-08 15:51:29.253981'),
+(11, 'KUNJ', 'Pravinbhai', 'PATEL', '161250107001', 'kunj@gmail.com', '25f9e794323b453885f5181f1b624d0b', '7777777777', '1999-01-08', 'Male', 'India', 'Gujarat', 'Ahmedabad', 'silveroak BE CE', '8.6', '2020', 'HBK', 'CBSE', '85', '2016', 'HBK', 'CBSE', '85', '2014', '', '', '1615199758.pdf', '', '', '', '', 2, '2021-03-08 16:01:42.803794');
 
 -- --------------------------------------------------------
 
@@ -191,7 +202,10 @@ CREATE TABLE `job_apply` (
 --
 
 INSERT INTO `job_apply` (`id`, `job_post_id`, `employee_id`, `round_status`, `created_time`) VALUES
-(1, 1, 1, 1, '2021-02-13 16:45:59.697099');
+(1, 1, 1, 1, '2021-02-13 16:45:59.697099'),
+(2, 3, 2, 2, '2021-02-20 11:20:04.402507'),
+(3, 5, 11, 2, '2021-03-08 11:53:15.412810'),
+(4, 4, 10, 1, '2021-03-08 11:53:59.596978');
 
 -- --------------------------------------------------------
 
@@ -221,7 +235,10 @@ CREATE TABLE `job_post` (
 
 INSERT INTO `job_post` (`id`, `job_title`, `job_ctc`, `job_deadlinedate`, `job_vacancies`, `job_type`, `job_location`, `exam_url`, `job_eligiblity`, `job_description`, `status`, `created_by`, `created_time`) VALUES
 (1, 'Devloper', '2L - 3L', '2021-02-13', 3, 'Full Time', 'Ahmedabad', 'http://www.gmail.com', 'Null', 'Null', 4, '1', '2021-02-13 16:38:54.998815'),
-(2, 'Devloper', '2L - 3L', '2021-02-13', 3, 'Part Time', 'Ahmedabad', 'http://www.gmail.com', 'Null', 'Null', 4, '1', '2021-02-13 16:49:04.198804');
+(2, 'Devloper', '2L - 3L', '2021-02-13', 3, 'Part Time', 'Ahmedabad', 'http://www.gmail.com', 'Null', 'Null', 4, '1', '2021-02-13 16:49:04.198804'),
+(3, 'Admin', '2L-3L', '2021-02-28', 2, 'Full Time', 'Ahmedabad', 'https://www.aptitude-test.com/', 'Any Graduate', 'Admin required for Gtu Alumni Job Portal', 4, '2', '2021-02-20 11:14:56.636332'),
+(4, 'System Engineer ', '2.5L - 3L', '2021-05-15', 3, 'Full Time', 'Ahmedabad', 'https://www.aptitude-test.com', 'Any fresher BE, BCA, B.Sc (IT)', 'Freshers required\r\nPost - System Engineer\r\nManaging and monitoring all installed systems and infrastructure, Installing, Configuring, testing and maintaining. \r\n', 4, '4', '2021-03-08 11:42:04.534896'),
+(5, 'Software Developers required', '2.5L-3L', '2021-05-08', 4, 'Full Time', 'Ahmedabad', 'https://www.aptitude-test.com', 'BE, B.Tech CE, IT, CSE, ICT', 'Research, Design, Implement, Managing software programs.\r\nTesting and evaluation of new programs.', 4, '4', '2021-03-08 11:51:49.938247');
 
 -- --------------------------------------------------------
 
@@ -234,6 +251,13 @@ CREATE TABLE `news_letter` (
   `email` varchar(255) NOT NULL,
   `created_at` timestamp(6) NOT NULL DEFAULT current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `news_letter`
+--
+
+INSERT INTO `news_letter` (`id`, `email`, `created_at`) VALUES
+(1, 'rvj12899@gmail.com', '2021-03-08 10:53:42.806048');
 
 -- --------------------------------------------------------
 
@@ -255,7 +279,7 @@ CREATE TABLE `page` (
 --
 
 INSERT INTO `page` (`id`, `about_info`, `contact_address`, `contact_number`, `contact_email`, `contact_website`) VALUES
-(1, 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', 'Ahmedabad , Gujarat', '1234567890', 'info@gmail.com', 'https://www.yoursite.com');
+(1, ' GTU ALUMNI Job portal includes GTU students, Companies and Admin. \r\nThe employer can find best suitable candidates for their company. The main aims of this portal are to connect to the industries and acts as an online recruitment to support the students ', 'Ahmedabad , Gujarat', '9999999999', 'info@gtualumnijobportal.com', 'https://www.gtualumnijobportal.com');
 
 -- --------------------------------------------------------
 
@@ -321,10 +345,8 @@ CREATE TABLE `testimonial` (
 --
 
 INSERT INTO `testimonial` (`id`, `person_name`, `person_designation`, `person_image`, `person_message`, `created_at`) VALUES
-(2, 'ABC DEF', 'MARKETING MANAGER', '1613716495.jpg', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', '2021-02-19 06:33:13.296059'),
-(3, 'GHI JKL', 'Web Developer', '1613763036.jpg', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', '2021-02-19 19:30:36.543310'),
-(4, 'MNO PQR', 'System Analyst', '1613763564.jpg', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', '2021-02-19 19:34:47.673187'),
-(5, 'STU VWX', 'Interface Designer', '1613763287.jpg', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', '2021-02-19 19:37:46.000000');
+(6, 'Kunj Patel', 'Jr. System Engineer', '1615200346.jpg', 'A very good job portal for GTU students. ', '2021-03-08 10:45:46.827226'),
+(7, 'Hemal', 'Software Developer', '1615200534.jpg', 'A very good job portal......', '2021-03-08 10:48:54.410856');
 
 --
 -- Indexes for dumped tables
@@ -416,43 +438,43 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `job_apply`
 --
 ALTER TABLE `job_apply`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `job_post`
 --
 ALTER TABLE `job_post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `news_letter`
 --
 ALTER TABLE `news_letter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `page`
@@ -476,7 +498,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `testimonial`
 --
 ALTER TABLE `testimonial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

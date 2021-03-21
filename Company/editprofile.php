@@ -200,7 +200,7 @@
 
         if($company_name)
         {
-          if (ctype_alpha(str_replace(' ','', $company_name)))
+          if (str_replace(' ','', $company_name) OR ctype_alpha(str_replace(' ','', $company_name)))
           {
             $company_name_validation = 0;
           }
@@ -502,7 +502,7 @@
                       <div class="row w-100" style="margin: 0;">
                         <div class="col-md" style="padding-left: 0;">
                           <label for="email">Company Website</label>
-                            <input id="email" type="text" class="form-control" name="company_website" value="<?php echo $company_website; ?>">
+                            <input id="email" type="url" class="form-control" name="company_website" value="<?php echo $company_website; ?>">
                             <div class="invalid-feedback">
                               <?php echo $company_website_msg; ?>
                             </div>

@@ -133,12 +133,16 @@
           <?php
             while ($row = mysqli_fetch_array($total_candidate)) 
             {
+              $color_value = color_label($row['workDetails']);
               ?>
                 <div class="col-md-12 ftco-animate">
                   <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
                     <div class="mb-4 mb-md-0 mr-5">
                       <div class="job-post-item-header d-flex align-items-center">
                         <h2 class="mr-3 text-black h3"><?php echo $row['firstname'].' '.$row['middlename'].' '.$row['lastname'];?></h2>
+                        <div class="badge-wrap">
+                         <span class="<?php echo $color_value; ?> text-white badge py-2 px-3"><?php echo $row['workDetails'];?></span>
+                        </div>
                       </div>
                       <div class="job-post-item-body d-block d-md-flex">
                         <div class="mr-3"><span class="icon-layers"></span> <a><?php echo $row['colleagename'];?></a></div>

@@ -119,12 +119,17 @@
 
               <div class="single-job-items mb-50">
                 <div class="job-items">
+                  <div class="company-img company-img-details">
+                   <!-- <a href="<?php echo $current_employee_details['company_website']; ?>" target = "_blank"><img src="<?php echo Company_Logo_Url.$current_employee_details['company_logo']; ?>" alt="<?php echo $current_employee_details['company_name']; ?>" style = 'background-size: cover;width:85px;height:85px;'></a> -->
+                  </div>
                   <div class="job-tittle">
-                    
+                    <!-- <a href="#">
+                      <h4><?php echo $current_job_details['job_title']; ?></h4>
+                    </a> -->
                     <div class="job-post-item-header d-flex align-items-center mb-3">
                         <h2 class="mr-3 mb-0 text-black h3"><?php echo $current_employee_details['firstname'].' '.$current_employee_details['middlename'].' '.$current_employee_details['lastname'];?></h2>
                         <div class="badge-wrap">
-                         
+                         <!-- <span class="<?php echo color_label($current_company_details['job_type']); ?> text-white badge py-2 px-3"><?php echo $current_company_details['job_type'];?></span> -->
                         </div>
                       </div>
                     <ul>
@@ -150,26 +155,15 @@
                   <thead class="thead-dark" id="resultTableHead">
                     <tr>
                       <th scope="col">Passout Year</th>
-                      <th scope="col">Course Name / Board Name</th>
+                      <th scope="col">Board Name</th>
                       <th scope="col">Colleage Name / School Name</th>
                       <th scope="col">CGPA / %</th>
                     </tr>
                   </thead>
                   <tbody class="text-dark" id="resultTableBody">
-                    <?php if ($current_employee_details['masterColleagename'] OR $current_employee_details['masterCourseName'] OR $current_employee_details['masterSgpa'] OR $current_employee_details['masterGraduationyear']) {
-                      ?>
-                        <tr>
-                          <td><?php echo $current_employee_details['masterGraduationyear'];?></td>
-                          <td><?php echo $current_employee_details['masterCourseName'];?></td>
-                          <td><?php echo $current_employee_details['masterColleagename'];?></td>
-                          <td><?php echo $current_employee_details['masterSgpa'];?></td>
-                        </tr>
-                      <?php
-                    }
-                    ?>
                     <tr>
                       <td><?php echo $current_employee_details['graduationyear'];?></td>
-                      <td><?php echo $current_employee_details['bachelorCourseName'];?></td>
+                      <td>Gujarat Technical University</td>
                       <td><?php echo $current_employee_details['colleagename'];?></td>
                       <td><?php echo $current_employee_details['sgpa'];?></td>
                     </tr>

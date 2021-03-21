@@ -339,7 +339,7 @@
 
 	function total_post_job($conn,$id,$limit='',$desc='',$job_category='',$job_type='',$job_location='')
 	{
-		$sql = "SELECT `job_post`.`id`,`job_title`,`job_deadlinedate`,`job_type`,`job_location`,`company_website`,`company_logo` FROM `job_post`,`company` WHERE created_by = '".$id."' AND `job_post`.`status` = 4 AND `job_post`.`created_by` = `company`.`id`";
+		$sql = "SELECT `job_post`.`id`,`job_title`,`job_deadlinedate`,`job_type`,`job_location`,`company_name`,`company_website`,`company_logo` FROM `job_post`,`company` WHERE created_by = '".$id."' AND `job_post`.`status` = 4 AND `job_post`.`created_by` = `company`.`id`";
 		if (!empty(trim($job_category))) {
 			$sql .= " AND `job_title` LIKE '%".$job_category."%' ";
 		}

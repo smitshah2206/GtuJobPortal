@@ -100,7 +100,8 @@
           </div>
           <div class="col-md-2 heading-section ftco-animate fadeInUp ftco-animated pl-3">
               <div class="ml-auto d-flex" style="width: 100%;height: 100%;justify-content: center;align-items: center;">
-                <a href="pending_request.php" class="btn btn-success py-2 mr-1">Pending Request
+                <a href="pending_request.php" class="btn btn-success py-2 mr-1<?php if ($total_pending_company_counter == 0) { ?> disabled<?php } ?>"
+                >Pending Request
                   <?php
                     if($total_pending_company_counter > 0)
                     {

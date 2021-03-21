@@ -156,7 +156,7 @@
 	{
 		$firstname= $value['firstname'];
 		$lastname= $value['lastname'];
-		$enno= $value['enno'];
+		$enno= $value['enrollement_no'];
 		$email= $value['email'];
 		$password= md5($value['password']);
 
@@ -217,7 +217,12 @@
 	    $state = $value['state'];
 	    $district = $value['district'];
 
+	    $masterColleagename = $value['masterColleagename'];
+	    $masterCourseName = $value['masterCourseName'];
+	    $masterSgpa = $value['masterSgpa'];
+	    $masterGraduationyear = $value['masterGraduationyear'];
 	    $colleagename = $value['colleagename'];
+	    $bachelorCourseName = $value['bachelorCourseName'];
 	    $sgpa = $value['sgpa'];
 	    $graduationyear = $value['graduationyear'];
 	    $hscschoolname = $value['hscschoolname'];
@@ -228,6 +233,8 @@
 	    $sscboardname = $value['sscboardname'];
 	    $ssccgpa = $value['ssccgpa'];
 	    $sscpassout = $value['sscpassout'];
+
+	    $workDetails = $value['workDetails'];
 
 	    $coverletter = $value['coverletter'];
 	    $intrestarea = $value['intrestarea'];
@@ -241,7 +248,7 @@
 	    $skype = $value['skype'];
 	    $url = Employee_Cv_Upload_Url.$uploadcv_name;
 	    move_uploaded_file($uploadcv_temp_name, $url);
-	    $sql = "UPDATE `employee` SET `firstname`='".$firstname."',`middlename`= '".$middlename."' ,`lastname`= '".$lastname."',`email`='".$email."',`contactnumber`='".$contactnumber."',`dateofbirth`='".$dateofbirth."',`gender`='".$gender."',`contry`='".$contry."',`state`='".$state."',`district`='".$district."',`colleagename`='".$colleagename."',`sgpa`='".$sgpa."',`graduationyear`='".$graduationyear."',`hscschoolname`='".$hscschoolname."',`hscboardname`='".$hscboardname."',`hsccgpa`='".$hsccgpa."',`hscyear`='".$hscpassout."',`sscschoolname`='".$sscschoolname."',`sscboardname`='".$sscboardname."',`ssccgpa`='".$ssccgpa."',`sscyear`='".$sscpassout."',`coverletter`='".$coverletter."',`intrestarea`='".$intrestarea."',`resume`='".$uploadcv_name."',`whatsapp`='".$whatsapp."',`github`='".$github."',`linkedin`='".$linkedin."',`skype`='".$skype."',`status`='2' WHERE `id` = '".$idvalue."'";
+	    $sql = "UPDATE `employee` SET `firstname`='".$firstname."',`middlename`= '".$middlename."' ,`lastname`= '".$lastname."',`email`='".$email."',`contactnumber`='".$contactnumber."',`dateofbirth`='".$dateofbirth."',`gender`='".$gender."',`contry`='".$contry."',`state`='".$state."',`district`='".$district."',`masterColleagename`='".$masterColleagename."',`masterCourseName`='".$masterCourseName."',`masterSgpa`='".$masterSgpa."',`masterGraduationyear`='".$masterGraduationyear."',`colleagename`='".$colleagename."',`bachelorCourseName`='".$bachelorCourseName."',`sgpa`='".$sgpa."',`graduationyear`='".$graduationyear."',`hscschoolname`='".$hscschoolname."',`hscboardname`='".$hscboardname."',`hsccgpa`='".$hsccgpa."',`hscyear`='".$hscpassout."',`sscschoolname`='".$sscschoolname."',`sscboardname`='".$sscboardname."',`ssccgpa`='".$ssccgpa."',`sscyear`='".$sscpassout."',`workDetails`='".$workDetails."',`coverletter`='".$coverletter."',`intrestarea`='".$intrestarea."',`resume`='".$uploadcv_name."',`whatsapp`='".$whatsapp."',`github`='".$github."',`linkedin`='".$linkedin."',`skype`='".$skype."',`status`='2' WHERE `id` = '".$idvalue."'";
 		$result = mysqli_query($conn,$sql);
 		if($result)
 		{

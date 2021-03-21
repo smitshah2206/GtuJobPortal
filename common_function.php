@@ -145,8 +145,14 @@
 			case 'Internship':
 				return 'bg-secondary';
 				break;
-			case 'Applied':
-				return 'text-dark';
+			case 'Experiance':
+				return 'bg-danger';
+				break;
+			case 'Experiance':
+				return 'bg-danger';
+				break;
+			case 'Fresher':
+				return 'bg-secondary';
 				break;
 			case 'Apptitude':
 				return 'text-primary';

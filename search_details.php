@@ -257,14 +257,13 @@
                           <div class="job-post-item-header d-flex align-items-center">
                             <h2 class="mr-3 text-black h3"><?php echo $row['firstname'].' '.$row['middlename'].' '.$row['lastname'];?></h2>
                           </div>
+                        </div>
+
+                        <div class="ml-auto d-flex">
                           <div class="job-post-item-body d-block d-md-flex">
                             <div class="mr-3"><span class="icon-layers"></span> <a><?php echo $row['colleagename'];?></a></div>
                             <div><span class="icon-my_location"></span> <span><?php echo $row['district'].','.$row['state'];?></span></div>
                           </div>
-                        </div>
-
-                        <div class="ml-auto d-flex">
-                          <a href="job-single.html" class="btn btn-primary py-2 mr-1">More Details</a>
                         </div>
                       </div>
                     </div>

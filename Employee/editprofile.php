@@ -14,7 +14,12 @@
       $state_msg = '';
       $district_msg = '';
 
+      $masterColleagename_msg = '';
+      $masterCourseName_msg = '';
+      $masterSgpa_msg = '';
+      $masterGraduationyear_msg = '';
       $colleagename_msg = '';
+      $bachelorCourseName_msg = '';
       $sgpa_msg = '';
       $graduationyear_msg = '';
       $hscschoolname_msg = '';
@@ -25,6 +30,8 @@
       $sscboardname_msg = '';
       $ssccgpa_msg = '';
       $sscpassout_msg = '';
+
+      $workDetails_msg = '';
 
       $coverletter_msg = '';
       $intrestarea_msg = '';
@@ -46,7 +53,12 @@
       $state = $value['state'];
       $district = $value['district'];
 
+      $masterColleagename = $value['masterColleagename'];
+      $masterCourseName = $value['masterCourseName'];
+      $masterSgpa = $value['masterSgpa'];
+      $masterGraduationyear = $value['masterGraduationyear'];
       $colleagename = $value['colleagename'];
+      $bachelorCourseName = $value['bachelorCourseName'];
       $sgpa = $value['sgpa'];
       $graduationyear = $value['graduationyear'];
       $hscschoolname = $value['hscschoolname'];
@@ -57,6 +69,8 @@
       $sscboardname = $value['sscboardname'];
       $ssccgpa = $value['ssccgpa'];
       $sscpassout = $value['sscyear'];
+
+      $workDetails = $value['workDetails'];
 
       $coverletter = $value['coverletter'];
       $intrestarea = $value['intrestarea'];
@@ -79,7 +93,12 @@
         $state = input_data($_POST['state']);
         $district = input_data($_POST['district']);
 
+        $masterColleagename = input_data($_POST['masterColleagename']);
+        $masterCourseName = input_data($_POST['masterCourseName']);
+        $masterSgpa = input_data($_POST['masterSgpa']);
+        $masterGraduationyear = input_data($_POST['masterGraduationyear']);
         $colleagename = input_data($_POST['colleagename']);
+        $bachelorCourseName = input_data($_POST['bachelorCourseName']);
         $sgpa = input_data($_POST['sgpa']);
         $graduationyear = input_data($_POST['graduationyear']);
         $hscschoolname = input_data($_POST['hscschoolname']);
@@ -91,6 +110,8 @@
         $ssccgpa = input_data($_POST['ssccgpa']);
         $sscpassout = input_data($_POST['sscpassout']);
 
+        $workDetails = input_data($_POST['workDetails']);
+        
         $coverletter = input_data($_POST['coverletter']);
         $intrestarea = input_data($_POST['intrestarea']);
         $uploadcv = $_FILES['uploadcv'];
@@ -111,7 +132,12 @@
         $state_validation = 0;
         $district_validation = 0;
 
+        $masterColleagename_validation = 0;
+        $masterCourseName_validation = 0;
+        $masterSgpa_validation = 0;
+        $masterGraduationyear_validation = 0;
         $colleagename_validation = 0;
+        $bachelorCourseName_validation = 0;
         $sgpa_validation = 0;
         $graduationyear_validation = 0;
         $hscschoolname_validation = 0;
@@ -122,6 +148,8 @@
         $sscboardname_validation = 0;
         $ssccgpa_validation = 0;
         $sscpassout_validation = 0;
+
+        $workDetails_validation = 0;
 
         $coverletter_validation = 0;
         $uploadcv_validation = 0;
@@ -326,6 +354,45 @@
           $district_validation = 1;
         }
 
+        if($masterColleagename)
+        {
+          if (ctype_alpha(str_replace(' ','', $masterColleagename)))
+          {
+            $masterColleagename_validation = 0;
+          }
+          else
+          {
+            $masterColleagename_msg = 'Only Character is required';
+            $masterColleagename_validation = 1;
+          }
+        }
+
+        if($masterCourseName)
+        {
+          if (ctype_alpha(str_replace('.','', $masterCourseName)))
+          {
+            $masterCourseName_validation = 0;
+          }
+          else
+          {
+            $masterCourseName_msg = 'Only Character is required';
+            $masterCourseName_validation = 1;
+          }
+        }
+
+        if($masterSgpa)
+        {
+          if (ctype_digit(str_replace('.','', $masterSgpa)))
+          {
+            $masterSgpa_validation = 0;
+          }
+          else
+          {
+            $masterSgpa_msg = 'Only Number is required';
+            $masterSgpa_validation = 1;
+          }
+        }
+
         if($colleagename)
         {
           if (ctype_alpha(str_replace(' ','', $colleagename)))
@@ -344,9 +411,27 @@
           $colleagename_validation = 1;
         }
 
+        if($bachelorCourseName)
+        {
+          if (ctype_alpha(str_replace('.','', $bachelorCourseName)))
+          {
+            $bachelorCourseName_validation = 0;
+          }
+          else
+          {
+            $bachelorCourseName_msg = 'Only Character is required';
+            $bachelorCourseName_validation = 1;
+          }
+        }
+        else
+        {
+          $bachelorCourseName_msg = 'This field is required';
+          $bachelorCourseName_validation = 1;
+        }
+
         if($sgpa)
         {
-          if (ctype_digit(str_replace('.', '', $sgpa)))
+          if (ctype_digit(str_replace('.','', $sgpa)))
           {
             $sgpa_validation = 0;
           }
@@ -358,7 +443,7 @@
         }
         else
         {
-          $sgpa_msg = 'SGPA is required';
+          $sgpa_msg = 'C.G.P.A. is required';
           $sgpa_validation = 1;
         }
 
@@ -485,6 +570,16 @@
           $sscpassout_msg = 'SSC Passout Year is required';
           $sscpassout_validation = 1;
         }
+        
+        if($workDetails)
+        {
+          $workDetails_validation = 0;
+        }
+        else
+        {
+          $workDetails_msg = 'Work Details is required';
+          $workDetails_validation = 1;
+        }
 
         if (strlen($coverletter) < 250) 
         {
@@ -579,7 +674,7 @@
         }
 
 
-        if($firstname_validation == 0 && $middlename_validation == 0 && $lastname_validation == 0 && $email_validation == 0 && $contactnumber_validation == 0 && $dateofbirth_validation == 0 && $gender_validation == 0 && $contry_validation == 0 && $state_validation == 0 && $district_validation == 0 && $colleagename_validation == 0 && $sgpa_validation == 0 && $graduationyear_validation == 0 && $hscschoolname_validation == 0 && $hscboardname_validation == 0 && $hsccgpa_validation == 0 && $hscpassout_validation == 0 && $sscschoolname_validation == 0 && $sscboardname_validation == 0 && $ssccgpa_validation == 0 && $sscpassout_validation == 0 && $coverletter_validation == 0 && $uploadcv_validation == 0 && $whatsapp_validation == 0 && $github_validation == 0 && $linkedin_validation == 0 && $skype_validation == 0)
+        if($firstname_validation == 0 && $middlename_validation == 0 && $lastname_validation == 0 && $email_validation == 0 && $contactnumber_validation == 0 && $dateofbirth_validation == 0 && $gender_validation == 0 && $contry_validation == 0 && $state_validation == 0 && $district_validation == 0 && $masterColleagename_validation == 0 && $masterCourseName_validation == 0 && $masterSgpa_validation == 0 && $masterGraduationyear_validation == 0 && $colleagename_validation == 0 && $bachelorCourseName_validation == 0 && $sgpa_validation == 0 && $graduationyear_validation == 0 && $hscschoolname_validation == 0 && $hscboardname_validation == 0 && $hsccgpa_validation == 0 && $hscpassout_validation == 0 && $sscschoolname_validation == 0 && $sscboardname_validation == 0 && $ssccgpa_validation == 0 && $sscpassout_validation == 0 && $workDetails_validation == 0 && $coverletter_validation == 0 && $uploadcv_validation == 0 && $whatsapp_validation == 0 && $github_validation == 0 && $linkedin_validation == 0 && $skype_validation == 0)
         {
           if(employee_update($conn,$_POST,$_FILES,$id))
           {
@@ -772,15 +867,80 @@
                     <div class="form-group mb-2">
                       <div class="row w-100" style="margin: 0;">
                         <div class="col-md" style="padding-left: 0;">
+                          <label for="email">Master College Name</label>
+                            <input type="text" class="form-control" name="masterColleagename" value="<?php echo $masterColleagename; ?>">
+                            <div class="invalid-feedback">
+                              <?php echo $masterColleagename_msg; ?>
+                            </div>
+                        </div>
+                        <div class="col-md" style="padding-left: 0;">
+                          <label>Course Name</label>
+                            <input type="text" class="form-control" name="masterCourseName" value="<?php echo $masterCourseName; ?>">
+                            <div class="invalid-feedback">
+                              <?php echo $masterCourseName_msg; ?>
+                            </div>
+                        </div>
+                        <div class="col-md" style="padding-right: 0;">
+                          <label for="email">C.G.P.A.</label>
+                            <input id="email" type="text" class="form-control" name="masterSgpa" value="<?php echo $masterSgpa; ?>">
+                            <div class="invalid-feedback">
+                              <?php echo $masterSgpa_msg; ?>
+                            </div>
+                        </div>
+                        <div class="col-md" style="padding-right: 0;">
+                          <label for="email">Graduation Year</label>
+                            <select name="masterGraduationyear" id="" class="form-control">
+                                    <?php 
+                                      if(isset($masterGraduationyear) && $masterGraduationyear != '')
+                                      {
+                                        ?>
+                                          <option value="<?php echo $masterGraduationyear;?>">
+                                            <?php echo $masterGraduationyear; ?>
+                                          </option>
+                                        <?php
+                                      }
+                                    ?>
+                                    <?php
+                                      $year = date('Y');
+                                      $end = $year + 4;
+                                      $start = $year - 10;
+                                      while ($end >= $start) {
+                                        ?>
+                                          <option value="<?php echo $end;?>"><?php echo $end;?></option>
+                                        <?php
+                                        $end--;
+                                      }
+                                    ?>
+                            </select>
+                            <div class="invalid-feedback">
+                              <?php echo $masterGraduationyear_msg; ?>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+                    <div class="form-group mb-2">
+                      <div class="row w-100" style="margin: 0;">
+                        <div class="col-md" style="padding-left: 0;">
                           <label for="email">Colleage Name</label>
                             <input id="email" type="text" class="form-control" name="colleagename" value="<?php echo $colleagename; ?>">
                             <div class="invalid-feedback">
                               <?php echo $colleagename_msg; ?>
                             </div>
                         </div>
+                        <div class="col-md" style="padding-left: 0;">
+                          <label>Course Name</label>
+                            <input type="text" class="form-control" name="bachelorCourseName" value="<?php echo $bachelorCourseName; ?>">
+                            <div class="invalid-feedback">
+                              <?php echo $bachelorCourseName_msg; ?>
+                            </div>
+                        </div>
                         <div class="col-md" style="padding-right: 0;">
-                          <label for="email">Semester Grade Point Average ( SGPA )</label>
-                            <input id="email" type="Number" class="form-control" name="sgpa" value="<?php echo $sgpa; ?>">
+                          <label for="email">C.G.P.A.</label>
+                            <input id="email" type="text" class="form-control" name="sgpa" value="<?php echo $sgpa; ?>">
                             <div class="invalid-feedback">
                               <?php echo $sgpa_msg; ?>
                             </div>
@@ -965,6 +1125,53 @@
                         </div>
                       </div>
                     </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="scheduler-border">
+          <legend class="scheduler-border">Work Details</legend>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="row">
+                <div class="col-md-6">
+                  <?php 
+                      if(isset($workDetails) && $workDetails == 'Fresher')
+                      {
+                        ?>
+                          <input type="radio" id="option-job-type-4" name="workDetails" value="Fresher" checked>
+                        <?php
+                      }
+                      else
+                      {
+                        ?>
+                          <input type="radio" id="option-job-type-4" name="workDetails" value="Fresher" checked>
+                        <?php
+                      }
+                  ?>
+                  <label for="option-job-type-4" >Fresher</label>
+                </div>
+                <div class="col-md-6" style="padding-right: 0;">
+                  <?php 
+                      if(isset($workDetails) && $workDetails == 'Experiance')
+                      {
+                        ?>
+                          <input type="radio" id="option-job-type-4" name="workDetails" value="Experiance" checked>
+                        <?php
+                      }
+                      else
+                      {
+                        ?>
+                          <input type="radio" id="option-job-type-4" name="workDetails" value="Experiance">
+                        <?php
+                      }
+                  ?>
+                  <label for="option-job-type-4" >Experiance</label>
+                </div>
+              </div>
+              <div class="invalid-feedback">
+                <?php echo $workDetails_msg; ?>
+              </div> 
             </div>
           </div>
         </fieldset>

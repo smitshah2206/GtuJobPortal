@@ -7,7 +7,6 @@
       $total_got_interview_candidate_counter = total_candidate_counter($conn,$_SESSION['id'],3);
 
       $newset_job = total_post_job($conn,$_SESSION['id'],4,'id');
-
       $allpost_job = total_post_job($conn,$_SESSION['id'],10,'`job_post`.`created_time`');
 
     ?>
